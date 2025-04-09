@@ -1,0 +1,14 @@
+{
+  "name": "@k-art/types",
+  "version": "0.0.1",
+  "license": "UNLICENSED",
+  "main": "src/index",
+  "types": "src/index.d.ts",
+  "private": true,
+  "scripts": {
+    "build": "run -T rimraf build && cp -R src dist"
+  },
+  "devDependencies": {
+    "@k-art/theme": "1.1.0"
+  }
+}

@@ -1,0 +1,45 @@
+.button {
+  width: fit-content;
+  height: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 4px;
+
+  cursor: pointer;
+  padding: 0 4px;
+  margin: 0;
+
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 24px;
+
+  color: var(--editor-c);
+
+  &:hover {
+    color: var(--theme-primary-300);
+  }
+
+  &:active {
+    color: var(--theme-primary-700);
+  }
+
+  &_fullwidth {
+    width: 100%;
+  }
+
+  &_active:not(.disabled) {
+    color: var(--theme-primary-700);
+  }
+
+  &_disabled {
+    pointer-events: none;
+    background-color: transparent;
+    color: var(--theme-texts-disabled);
+
+    svg path {
+      stroke: var(--theme-texts-disabled);
+    }
+  }
+}

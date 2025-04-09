@@ -1,0 +1,20 @@
+// hierarchy renders in menu, has acces to eds cssv
+.themeVars_light {
+  --hchy-btn-c: var(--theme-texts-base);
+  --hchy-btn-c-h: var(--theme-primary-700);
+  --hchy-btn-c-a: var(--theme-primary-300);
+  --hchy-btn-c-p: var(--theme-primary-300);
+
+  --hchy-btn-bgc: transparent;
+  --hchy-btn-bgc-h: transparent;
+  --hchy-btn-bgc-a: transparent;
+
+  --hchy-spinner-stroke-c: var(--theme-primary-500);
+}
+
+.container {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}

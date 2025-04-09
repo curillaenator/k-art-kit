@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <mask id="cutMask">
+    <!-- <path
+      fill="none"
+      stroke="white"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="1.5"
+      d="M8.75 3.75h-2a2 2 0 0 0-2 2v12.5a2 2 0 0 0 2 2h2m6.5-16.5h2a2 2 0 0 1 2 2v12.5a2 2 0 0 1-2 2h-2"
+    /> -->
+    <path
+      fill="white"
+      d="M15.058 4.163a.75.75 0 1 0-1.464-.326l-3.556 16a.75.75 0 1 0 1.465.326zM7.83 7.47a.75.75 0 0 1 0 1.06L4.36 12l3.47 3.47a.75.75 0 1 1-1.061 1.06l-4-4a.75.75 0 0 1 0-1.06l4-4a.75.75 0 0 1 1.06 0m9.44 0a.75.75 0 0 0 0 1.06l3.47 3.47l-3.47 3.47a.75.75 0 1 0 1.06 1.06l4-4a.75.75 0 0 0 0-1.06l-4-4a.75.75 0 0 0-1.06 0"
+    />
+    <circle cx="17.3" cy="17.7" r="7" fill="black" />
+  </mask>
+
+  <g mask="url(#cutMask)">
+    <rect width="24" height="24" fill="currentColor" />
+  </g>
+
+
+  <path
+    fill="currentColor"
+    fill-rule="evenodd"
+    d="M17.5 23a5.5 5.5 0 1 0 0-11a5.5 5.5 0 0 0 0 11m0-8.993a.5.5 0 0 1 .5.5V17h2.493a.5.5 0 1 1 0 1H18v2.493a.5.5 0 1 1-1 0V18h-2.493a.5.5 0 1 1 0-1H17v-2.493a.5.5 0 0 1 .5-.5"
+    clip-rule="evenodd"
+  />
+
+
+</svg>

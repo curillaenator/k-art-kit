@@ -1,0 +1,36 @@
+{
+  "name": "@k-art/button",
+  "version": "1.0.0",
+  "description": "Button component",
+  "license": "ISC",
+  "author": "curillaenator@gmail.com",
+  "publishConfig": {
+    "access": "public",
+    "main": "build/index.js",
+    "types": "build/index.d.ts",
+    "type": "module",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "scripts": {
+    "build": "npx tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@k-art/loader": "1.0.0",
+    "@k-art/shape": "1.0.5",
+    "@k-art/typography": "1.0.0"
+  },
+  "devDependencies": {
+    "@k-art/types": "*"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "styled-components": "*"
+  },
+  "files": [
+    "/build",
+    "package.json"
+  ],
+  "type": "module"
+}

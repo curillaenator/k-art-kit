@@ -1,0 +1,57 @@
+@use 'sass:map';
+
+$infoTypes: (
+  'info': (
+    'text': var(--theme-texts-base),
+    'bdc': transparent,
+    'bgc': var(--theme-accent-100),
+  ),
+  'warn': (
+    'text': var(--theme-texts-base),
+    'bdc': transparent,
+    'bgc': var(--theme-backgrounds-warn),
+  ),
+  'success': (
+    'text': var(--theme-texts-base),
+    'bdc': transparent,
+    'bgc': var(--theme-backgrounds-succes),
+  ),
+  'error': (
+    'text': var(--theme-texts-error),
+    'bdc': transparent,
+    'bgc': var(--theme-backgrounds-error),
+  ),
+);
+
+.info {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 8px;
+
+  color: var(--info-c);
+  background-color: var(--info-bgc);
+  // border: 1px solid var(--info-bdc);
+
+  & > img {
+    flex: 0 0 auto;
+  }
+
+  &_content {
+    width: 100%;
+    min-height: 40px;
+    flex: 1 1 auto;
+    padding: 8px 0;
+  }
+
+  @each $infoType, $infoColors in $infoTypes {
+    &_#{'' + $infoType} {
+      --info-c: #{map.get($infoColors, 'text')};
+      --info-bgc: #{map.get($infoColors, 'bgc')};
+      --info-bdc: #{map.get($infoColors, 'bdc')};
+    }
+  }
+}

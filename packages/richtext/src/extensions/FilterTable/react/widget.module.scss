@@ -1,0 +1,146 @@
+.nodeViewWrapper {
+  max-width: 100%;
+  width: fit-content;
+  margin-top: 8px;
+}
+
+.tableContainer {
+  position: relative;
+
+  width: fit-content;
+  max-width: 100%;
+
+  &_hasToolbar {
+    .toolbar {
+      position: absolute;
+
+      top: 0;
+      left: 0;
+
+      opacity: 0;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 0;
+
+        width: 100%;
+        height: 8px;
+      }
+    }
+
+    &:hover {
+      .toolbar {
+        transform: translateY(-48px);
+        opacity: 1;
+      }
+    }
+  }
+}
+
+// .toolbar {
+//   display: flex;
+//   justify-content: space-between;
+//   gap: 24px;
+//   margin-bottom: 8px;
+
+//   .block {
+//     display: flex;
+//     gap: 8px;
+
+//     &_left {
+//       width: 100%;
+//       flex-shrink: 1;
+//     }
+
+//     &_right {
+//       width: fit-content;
+//       flex-shrink: 0;
+//       align-self: flex-start;
+//     }
+//   }
+// }
+
+.contentTable {
+  width: 100%;
+  max-width: 100%;
+
+  overflow-y: hidden;
+  overflow-x: auto;
+
+  border-radius: 8px;
+  border: 1px solid var(--editor-bdc);
+
+  & > table {
+    border-collapse: collapse;
+    margin: 0;
+    table-layout: fixed;
+
+    :global(.selectedCell:after) {
+      background-color: var(--editor-primary);
+      content: '';
+      opacity: 0.28;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      pointer-events: none;
+      position: absolute;
+      z-index: 2;
+    }
+
+    td,
+    th {
+      position: relative;
+
+      padding: 8px;
+      border: 1px solid var(--editor-bdc);
+      vertical-align: top;
+
+      &:first-child {
+        border-left: none;
+      }
+
+      &:last-child {
+        border-right: none;
+      }
+    }
+
+    th {
+      // background-color: var(--editor-highlight-bgc);
+      font-weight: bold;
+      text-align: left;
+    }
+
+    td {
+      background-color: var(--editor-bgc);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+  }
+
+  &::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+
+    &-thumb {
+      cursor: pointer;
+
+      border-radius: 2px;
+      background-color: var(--editor-scroll-thumb);
+
+      &:hover {
+        background-color: var(--editor-scroll-thumb-h);
+      }
+    }
+
+    &-track {
+      border-radius: 2px;
+      background-color: var(--editor-bdc);
+      margin: 0 8px;
+    }
+  }
+}

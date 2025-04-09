@@ -1,0 +1,53 @@
+.dialog {
+  width: 100%;
+  height: 100vh;
+
+  max-width: initial;
+  max-height: initial;
+  border: none;
+
+  background-color: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(5px);
+  padding: 4vw;
+}
+
+.iframe {
+  width: 100%;
+  height: calc(100% - 4px); // 4px - странный сдвиг у контента drawio
+  border: none;
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+// виджет рендериться внутри редактора, поэтому в нем доступны cssv редактора, для цветов использовать их
+.widget {
+  width: 100%;
+  border-radius: 8px;
+  padding: var(--drawio-widget-pd, 0);
+  border: 1px solid var(--theme-borders-base);
+  background-color: var(--theme-backgrounds-light);
+}
+
+.image {
+  object-fit: contain;
+  cursor: grab;
+}
+
+.badge {
+  width: 100%;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 16px;
+  color: var(--editor-c);
+
+  & > span {
+    display: block;
+    width: 100%;
+  }
+}

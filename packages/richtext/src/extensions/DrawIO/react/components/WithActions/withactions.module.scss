@@ -1,0 +1,41 @@
+.container {
+  --drawio-widget-toolbar-opacity: 0;
+  --drawio-widget-pd: 16px;
+
+  width: 100%;
+  position: relative;
+  padding: var(--drawio-widget-pd);
+
+  min-height: calc(40px + var(--drawio-widget-pd) * 2); // 40 - min actions height
+
+  overflow: hidden;
+
+  &:has(img[data-drawio-image]) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 512px;
+  }
+
+  &:hover {
+    --drawio-drag-handler-c: var(--editor-bdc);
+    --drawio-widget-toolbar-opacity: 1;
+  }
+
+  .actions {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+
+    display: flex;
+    align-items: center;
+
+    width: fit-content;
+    border-radius: 8px;
+
+    background-color: var(--theme-backgrounds-light);
+    box-shadow: inset 0 0 0 1px var(--theme-borders-base);
+    opacity: var(--drawio-widget-toolbar-opacity);
+  }
+}

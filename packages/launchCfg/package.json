@@ -1,0 +1,27 @@
+{
+  "name": "@k-art/config",
+  "version": "1.1.0",
+  "description": "Common configs for LaunchTabs UI packages",
+  "license": "ISC",
+  "author": "curillaenator@gmail.com",
+  "publishConfig": {
+    "access": "public",
+    "main": "index.js",
+    "type": "git",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "main": "index.js",
+  "scripts": {
+    "pb": "npm publish",
+    "pb:dry": "npm publish --dry-run"
+  },
+  "files": [
+    "tsconfig.json",
+    "package.json"
+  ],
+  "peerDependencies": {
+    "react": "*",
+    "typescript": "*"
+  },
+  "type": "commonjs"
+}

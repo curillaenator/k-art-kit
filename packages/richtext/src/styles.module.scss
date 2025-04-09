@@ -1,0 +1,276 @@
+._cssv {
+  --editor-primary: var(--theme-primary-500);
+  --editor-primary-h: var(--theme-primary-400);
+  --editor-primary-a: var(--theme-primary-600);
+
+  --editor-c: var(--theme-texts-base);
+
+  --editor-bdc: var(--theme-borders-base);
+
+  --editor-bgc: var(--theme-backgrounds-base);
+
+  --editor-highlight-bgc: var(--theme-backgrounds-light);
+
+  --editor-scroll-thumb: var(--theme-primary-500);
+  --editor-scroll-thumb-h: var(--theme-primary-400);
+  --editor-scroll-track: var(--theme-backgrounds-light);
+  --editor-scroll-track-h: var(--theme-backgrounds-light);
+
+  --editor-pd: 48px; // must be single digit, use another var for separate values, like "24px 24px 8px 6px"
+}
+
+.editor {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  color: var(--theme-texts-base);
+  font-family: system-ui-rounded, ui-rounded, 'SanFrancisco', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+
+  &_toolbarTop {
+    flex-direction: column-reverse;
+  }
+
+  &_isFocused {
+    --blocksgrid-toolbar-opacity: 1;
+  }
+
+  .scrollbar {
+    overflow-y: auto;
+    overflow-x: auto;
+
+    margin-right: 8px;
+
+    // настройка отображение плейсхолдера: https://tiptap.dev/docs/editor/api/extensions/placeholder
+    :global {
+      .tiptap {
+        a {
+          cursor: pointer;
+          text-decoration: none;
+          color: var(--theme-primary-500);
+
+          &:hover {
+            color: var(--theme-primary-300);
+          }
+
+          &:active {
+            color: var(--theme-primary-700);
+          }
+
+          // &:visited {
+          //   color: var(--theme-primary-600);
+          // }
+        }
+
+        p.is-editor-empty:first-child::before {
+          color: var(--theme-texts-placeholder);
+          content: attr(data-placeholder);
+          float: left;
+          height: 0;
+          pointer-events: none;
+        }
+        .is-empty {
+          position: relative;
+        }
+        .is-empty::before {
+          color: var(--theme-texts-placeholder);
+          content: attr(data-placeholder);
+          position: absolute;
+          left: 0;
+          pointer-events: none;
+          opacity: 0.5;
+          font-weight: 400;
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+
+  &:not(:has(._disabled)) {
+    .scrollbar {
+      &::-webkit-scrollbar {
+        width: 4px;
+        height: 4px;
+
+        &-thumb {
+          border-radius: 2px;
+          background-color: var(--editor-scroll-thumb);
+
+          &:hover {
+            background-color: var(--editor-scroll-thumb-h);
+          }
+        }
+
+        &-track {
+          margin: 24px 0;
+          border-radius: 2px;
+          background-color: var(--editor-scroll-track);
+        }
+      }
+    }
+  }
+}
+
+._disabled {
+  cursor: not-allowed;
+  background-color: rgba(0, 0, 0, 0.04);
+
+  .scrollbar {
+    overflow: hidden;
+
+    & > * {
+      pointer-events: none;
+    }
+  }
+}
+
+.content {
+  cursor: text;
+  position: relative;
+
+  :global {
+    .ProseMirror-focused {
+      outline: none;
+    }
+
+    .ProseMirror {
+      padding: calc(var(--editor-pd) / 2) var(--editor-pd);
+    }
+  }
+}
+
+// sticky TOC START
+// @keyframes stickyTocAppear {
+//   from {
+//     width: 0;
+//   }
+//   to {
+//     width: #{$aside-w};
+//   }
+// }
+
+// .tocContainer {
+//   position: absolute;
+//   top: 49px;
+//   right: 0px;
+//   width: 0px;
+//   height: calc(100% - 49px);
+//   transition: width 200ms ease;
+
+//   &_bordered {
+//     border-left: 1px solid var(--editor-bdc);
+//   }
+
+//   &_aside {
+//     width: #{$aside-w};
+//     animation: stickyTocAppear 200ms ease;
+//   }
+
+//   &_popup {
+//     width: #{$aside-48-w};
+//   }
+// }
+// sticky TOC END
+
+.content ul,
+.content ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  padding-left: 24px;
+}
+
+/*
+  BEGIN OF HACK BLOCK
+*/
+.content ul > li > p::before {
+  content: '';
+  position: absolute;
+  left: -14px;
+  top: 9px;
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  background-color: currentColor;
+  border-radius: 100%;
+}
+
+.content ul > li > p[style='text-align: center']::before,
+.content ul > li > p[style='text-align: right']::before {
+  position: relative;
+  top: -2px;
+}
+
+.content ul > li > p,
+.content ol > li > p {
+  position: relative;
+}
+
+.content ol {
+  counter-reset: counter;
+}
+
+.content ol > li:nth-child(n + 10) > p:not([style='text-align: center']):not([style='text-align: right']) {
+  padding-left: 10px;
+}
+
+.content ol > li:nth-child(n + 100) > p:not([style='text-align: center']):not([style='text-align: right']) {
+  padding-left: 20px;
+}
+
+.content ol > li > p::before {
+  counter-increment: counter;
+  content: counter(counter) '. ';
+  position: absolute;
+  left: -18px;
+  top: 0;
+  display: inline-block;
+  color: currentColor;
+}
+
+.content ol > li > p[style='text-align: center']::before,
+.content ol > li > p[style='text-align: right']::before {
+  position: relative;
+}
+
+/* END OF HACK BLOCK */
+
+.content * + p {
+  margin-top: 8px;
+}
+
+/* TAGS */
+
+.editor pre {
+  font-family: 'SpaceMono', monospace;
+  margin: 0;
+  padding: 16px;
+  border-radius: 8px;
+  background-color: var(--theme-backgrounds-codeblock);
+  color: var(--theme-texts-codeblock);
+}
+
+.editor code[data-set='inline'] {
+  font-family: 'SpaceMono', monospace;
+  padding: 2px 4px;
+  border-radius: 4px;
+  background-color: var(--theme-backgrounds-codeblock);
+  color: var(--theme-texts-codeblock);
+}
+
+.editor blockquote {
+  margin: 8px 0 0;
+  padding-left: 16px;
+  border-left: 1px solid var(--theme-primary-500);
+}
+
+.editor hr {
+  height: 1px;
+  background-color: var(--theme-borders-base);
+  border: none;
+  margin: 16px 0;
+}

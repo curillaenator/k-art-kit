@@ -1,0 +1,22 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+
+  &_styled {
+    --shp-bgc: var(--theme-backgrounds-light);
+    --shp-bdc: var(--theme-borders-base);
+    // for corners
+    position: relative;
+
+    padding: var(--dropable-content-pd, 4px 8px);
+    border-radius: calc(var(--dropable-content-bdrs, 14px) * 1.25 + 3px);
+    background-color: var(--theme-backgrounds-light);
+    box-shadow: inset 0 0 0 1px var(--theme-borders-base);
+  }
+
+  svg[data-svg-corner='true'] {
+    z-index: 10000;
+  }
+}

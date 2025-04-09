@@ -1,0 +1,44 @@
+.container {
+  position: relative;
+
+  max-width: 100%;
+
+  border-radius: 8px;
+  border: 1px solid var(--theme-backgrounds-light);
+  overflow: hidden;
+
+  &_withLocalSrc {
+    & > img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &_withToolbar {
+    &:hover {
+      --image-toolbar-visibility: 1;
+    }
+
+    & > img {
+      cursor: grab;
+    }
+  }
+}
+
+.toolbar {
+  opacity: var(--image-toolbar-visibility, 0);
+
+  position: absolute;
+  top: 8px;
+  right: 8px;
+
+  display: flex;
+  align-items: center;
+
+  width: fit-content;
+  border-radius: 8px;
+
+  background-color: var(--theme-backgrounds-light);
+  box-shadow: inset 0 0 0 1px var(--theme-borders-base);
+}

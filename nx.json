@@ -1,0 +1,36 @@
+{
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "targetDefaults": {
+    "build": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"]
+    }
+  },
+  "namedInputs": {
+    "default": ["{projectRoot}/**/*", "sharedGlobals"],
+    "production": [
+      "default",
+      "!{projectRoot}/eslint.config.mjs",
+      "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
+      "!{projectRoot}/jest.config.[jt]s"
+    ],
+    "sharedGlobals": []
+  },
+  "release": {
+    "projects": ["base/*", "packages/*"],
+    "projectsRelationship": "independent",
+    "version": {
+      "generatorOptions": {
+        "currentVersionResolver": "git-tag",
+        "specifierSource": "conventional-commits",
+        "fallbackCurrentVersionResolver": "disk"
+      }
+    },
+    "git": {
+      "commit": true,
+      "tag": true
+    },
+    "changelog": { "projectChangelogs": true, "workspaceChangelog": false }
+  }
+}

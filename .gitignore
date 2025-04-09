@@ -1,0 +1,28 @@
+# Yarn 3
+.yarn/*
+!.yarn/releases
+
+# compiled output
+dist
+build
+
+# dependencies
+node_modules
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+
+# Env
+.env*
+!.env*.example
+
+
+
+
+# Nx
+.nx/cache

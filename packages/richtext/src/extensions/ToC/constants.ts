@@ -1,0 +1,13 @@
+const TOC_MAX_TITLE_LENGTH = 128;
+
+const TOC_EXTENSION_NAME = 'tableOfContent';
+
+const SCROLL_DEFAULT_OFFSET = -24;
+const SCROLL_DEFAULT_DURATION = 300;
+
+const DEFAULT_RANGE: Record<'minLevel' | 'maxLevel', number> = {
+  minLevel: 1,
+  maxLevel: 6,
+};
+
+export { TOC_EXTENSION_NAME, SCROLL_DEFAULT_OFFSET, SCROLL_DEFAULT_DURATION, DEFAULT_RANGE, TOC_MAX_TITLE_LENGTH };

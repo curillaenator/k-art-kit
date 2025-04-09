@@ -1,0 +1,63 @@
+@use '../CssButton/cssButton' as button;
+
+.actions {
+  --dropable-content-pd: 0;
+
+  width: fit-content;
+
+  .scrollClassName {
+    padding: 0;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+@keyframes togglerAppear {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.trigger {
+  @include button.button;
+
+  display: block;
+  flex-shrink: 0;
+
+  .toggler {
+    animation: togglerAppear 200ms ease;
+  }
+
+  &_active {
+    --hchy-btn-c: var(--hchy-btn-c-p);
+
+    &:hover {
+      --hchy-btn-c: var(--hchy-btn-c-p);
+    }
+
+    &:active {
+      --hchy-btn-c: var(--hchy-btn-c-p);
+    }
+  }
+}
+
+.item {
+  --btn-pd: 0 4px 0 0;
+  --btn-gp: 0;
+  --btn-mh: 32px;
+
+  // --btn_pm-tp_cnt-gn: var(--eds-fore-primary);
+  // --btn_pm-tp_cnt-gn-h: var(--eds-fore-accent-h);
+  // --btn_pm-tp_cnt-gn-a: var(--eds-fore-accent);
+  // --btn_pm-tp_cnt-gn-p: var(--eds-fore-accent-a);
+
+  flex-shrink: 0;
+  white-space: nowrap;
+  text-decoration: none;
+}

@@ -1,0 +1,35 @@
+{
+  "name": "@k-art/drawer",
+  "version": "1.0.2",
+  "description": "Drawer component",
+  "license": "ISC",
+  "author": "curillaenator@gmail.com",
+  "publishConfig": {
+    "access": "public",
+    "main": "build/index.js",
+    "types": "build/index.d.ts",
+    "type": "module",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "scripts": {
+    "build": "npx tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@headlessui/react": "1.7.0",
+    "@k-art/utils": "1.0.1"
+  },
+  "devDependencies": {
+    "@k-art/types": "*"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "styled-components": "*"
+  },
+  "files": [
+    "/build",
+    "package.json"
+  ],
+  "type": "module"
+}

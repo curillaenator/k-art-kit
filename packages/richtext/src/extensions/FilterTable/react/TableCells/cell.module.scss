@@ -1,0 +1,33 @@
+.cellContaner {
+  // width: 100%;
+
+  .cellContent {
+    // display: inline-block;
+    // width: 100%;
+
+    &_center {
+      text-align: center;
+    }
+  }
+}
+
+.widthHandler {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 48px;
+  height: 100%;
+  color: transparent;
+
+  cursor: ew-resize;
+
+  &:hover {
+    background-color: var(--theme-backgrounds-light);
+    color: var(--editor-c);
+  }
+}

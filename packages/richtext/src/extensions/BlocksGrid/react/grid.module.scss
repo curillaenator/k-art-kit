@@ -1,0 +1,10 @@
+.grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: var(--blocksgrid-template);
+
+  &.overlap {
+    width: calc(100% + var(--editor-pd));
+    transform: translateX(calc(var(--editor-pd) / -2));
+  }
+}

@@ -1,0 +1,65 @@
+@use '../CssButton/cssButton' as button;
+
+.button {
+  @include button.button;
+
+  text-decoration: none;
+  position: relative;
+  flex-shrink: 1;
+  width: calc(100% - 32px);
+
+  // &_actioned {
+  //   width: calc(100% - 64px);
+  // }
+
+  &_active {
+    color: var(--theme-primary-500);
+
+    &:hover {
+      color: var(--theme-primary-500);
+    }
+
+    &:active {
+      color: var(--theme-primary-500);
+    }
+  }
+
+  .captionContainer {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+  }
+
+  .caption {
+    display: block;
+    max-height: 32px;
+    padding: 8px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: left;
+    text-overflow: ellipsis;
+    font-family: inherit;
+  }
+
+  .lengthRef {
+    display: block;
+    white-space: nowrap;
+    visibility: hidden;
+    width: fit-content;
+    height: 0;
+    padding: 0 8px;
+    font-family: inherit;
+  }
+}
+
+// .hint {
+
+//   .content {
+//     display: block;
+//     min-height: 16px;
+//     font-size: 14px;
+//     line-height: 16px;
+//     font-weight: 300;
+//     color: var(--hchy-hint-dd-c);
+//   }
+// }

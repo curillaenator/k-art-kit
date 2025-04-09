@@ -1,0 +1,33 @@
+.toolbar {
+  --shp-bdc: var(--theme-borders-base);
+  --shp-bgc: var(--theme-backgrounds-base);
+
+  position: relative;
+
+  display: flex;
+  justify-content: space-between;
+  width: calc(100% - var(--editor-pd));
+  min-height: 48px;
+  border-radius: calc(12px * 1.25 + 3px);
+  box-shadow: inset 0 0 0 1px var(--theme-borders-base);
+  margin: 0 calc(var(--editor-pd) / 2);
+
+  .toolbarBlock {
+    display: flex;
+    padding: 8px 0;
+
+    &_left {
+      padding-left: 8px;
+    }
+
+    &_right {
+      padding-right: 8px;
+    }
+  }
+}
+
+@each $composition, $gapX in ('full': 24px, 'medium': 12px, 'compact': 8px, 'small': 4px, 'minimal': 0px) {
+  ._#{'' + $composition} {
+    gap: #{$gapX};
+  }
+}

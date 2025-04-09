@@ -1,0 +1,19 @@
+.draggable {
+  position: relative;
+
+  &::before {
+    content: ''; // '⠿'
+    cursor: grab;
+    position: absolute;
+
+    top: 0;
+    left: -24px;
+
+    width: 24px;
+    height: 24px;
+  }
+
+  &:not(li > p):not(li):hover::before {
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><text fill="rgb(225, 226, 226)" x="12" y="12" font-size="18" font-family="Arial" text-anchor="middle" dominant-baseline="middle">⠿</text></svg>');
+  }
+}

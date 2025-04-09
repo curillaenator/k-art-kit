@@ -1,0 +1,125 @@
+@use 'sass:map';
+
+$headingParams: (
+  'h1': (
+    'fz': 36px,
+    'lh': 48px,
+    'top': 12px,
+    'bottom': 16px,
+  ),
+  'h2': (
+    'fz': 24px,
+    'lh': 32px,
+    'top': 12px,
+    'bottom': 16px,
+  ),
+  'h3': (
+    'fz': 20px,
+    'lh': 24px,
+    'top': 8px,
+    'bottom': 12px,
+  ),
+  'h4': (
+    'fz': 16px,
+    'lh': 24px,
+    'top': 8px,
+    'bottom': 12px,
+  ),
+  'h5': (
+    'fz': 14px,
+    'lh': 24px,
+    'top': 8px,
+    'bottom': 8px,
+  ),
+  'h6': (
+    'fz': 12px,
+    'lh': 24px,
+    'top': 8px,
+    'bottom': 8px,
+  ),
+);
+
+$popupShift: 8px;
+$triggerWidth: 32px;
+
+$headingAligns: (
+  'center': (
+    'justify': 'center',
+  ),
+  'left': (
+    'justify': 'flex-start',
+  ),
+  'right': (
+    'justify': 'flex-end',
+  ),
+  'justify': (
+    'justify': 'flex-start',
+  ),
+);
+
+.heading {
+  position: relative;
+  max-width: 100%;
+  width: 100%;
+
+  display: flex;
+  align-items: flex-start;
+
+  margin: 0;
+  margin-top: var(--custom-heading-mt, 0);
+  margin-bottom: var(--custom-heading-mb, 0);
+
+  scroll-margin-top: 104px;
+  scroll-margin-bottom: 104px;
+
+  cursor: text;
+  flex: 0 0 auto;
+  max-width: calc(100% - $triggerWidth);
+  min-width: 8px;
+
+  &:hover {
+    --action-button-visibility: 1;
+  }
+
+  @each $textAlign, $textValues in $headingAligns {
+    &_#{'' + $textAlign} {
+      justify-content: #{map.get($textValues, 'justify')};
+    }
+  }
+
+  @each $level, $pd in $headingParams {
+    &_#{'' + $level} {
+      --custom-heading-mt: #{map.get($headingParams, $level, 'top')};
+      --custom-heading-mb: #{map.get($headingParams, $level, 'bottom')};
+
+      font-size: #{map.get($headingParams, $level, 'fz')};
+      line-height: #{map.get($headingParams, $level, 'lh')};
+    }
+  }
+
+  .copylink {
+    cursor: pointer;
+    opacity: var(--action-button-visibility, 0);
+    flex: 0 0 auto;
+
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+
+    display: flex;
+    align-items: center;
+
+    width: $triggerWidth;
+    height: 24px;
+    color: var(--theme-texts-disabled);
+
+    &:hover {
+      color: var(--theme-primary-400);
+    }
+
+    &:active {
+      color: var(--theme-primary-600);
+    }
+  }
+}

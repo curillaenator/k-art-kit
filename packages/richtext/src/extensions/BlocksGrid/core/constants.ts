@@ -1,0 +1,5 @@
+const EXTENSION_NAME = 'blocksGrid';
+const COLUMN_NODE_NAME = 'column';
+const ALLOWED_COLUMNS_IDXS = [0, 1, 2];
+
+export { EXTENSION_NAME, COLUMN_NODE_NAME, ALLOWED_COLUMNS_IDXS };

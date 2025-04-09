@@ -1,0 +1,30 @@
+.route {
+  --shp-bgc: var(--theme-primary-500);
+  --shp-bdc: transparent;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+
+  margin-top: 12px;
+  padding: 8px 12px;
+  height: 40px;
+  border-radius: 16px;
+
+  background-color: var(--shp-bgc);
+  color: var(--theme-white) !important;
+
+  text-decoration: none;
+  filter: contrast(1.3) drop-shadow(var(--theme-shadows-primary));
+
+  &:hover {
+    --shp-bgc: var(--theme-primary-300);
+  }
+
+  &:active {
+    --shp-bgc: var(--theme-primary-700);
+  }
+}

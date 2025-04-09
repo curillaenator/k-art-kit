@@ -1,0 +1,55 @@
+// селектор выбирает для вставки плейсхолдера те чекбоксы, которые
+// имеют <br/> с классом ProseMirror-trailingBreak и не имеют других <br/> или элементов меншнов
+ul[data-type='taskList']
+  > li:last-child
+  div
+  > div
+  > p:has(> br[class='ProseMirror-trailingBreak']):not(:has(> br:not([class]))):not(:has(span)):first-child::before {
+  content: 'Новый пункт';
+  color: #858585;
+}
+
+ul[data-type='taskList'] {
+  padding-left: 0px !important;
+}
+
+.li {
+  div > label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-top: 4px;
+
+    > input:checked ~ span {
+      &::after {
+        display: block;
+      }
+    }
+  }
+
+  div > label:has(input:checked) ~ div > div > p {
+    text-decoration: line-through;
+  }
+}
+
+.container {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.content {
+  flex-grow: 1;
+  min-width: 0;
+  position: relative;
+  padding: 8px;
+
+  &_striked {
+    text-decoration: line-through;
+  }
+}
+
+.notEditableLabel {
+  pointer-events: none;
+}

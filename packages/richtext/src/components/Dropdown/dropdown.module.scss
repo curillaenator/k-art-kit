@@ -1,0 +1,23 @@
+.divider {
+  width: 100%;
+  height: 1px;
+  margin: 8px 0;
+  flex-shrink: 0;
+
+  background-color: var(--editor-bdc);
+}
+
+.itemCaption {
+  text-align: left;
+
+  &.overflow {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+
+.openNodeLabel {
+  text-align: left;
+  line-height: 1;
+}

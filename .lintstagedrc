@@ -1,0 +1,9 @@
+{
+  "*.(js|jsx|ts|tsx)": [
+    "npx prettier ./base --write",
+    "npx prettier ./packages --write",
+    "npx eslint ./base --fix --quiet",
+    "npx eslint ./packages --fix --quiet",
+    "git add"
+  ]
+}

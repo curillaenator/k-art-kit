@@ -1,0 +1,82 @@
+@use '../CssButton/cssButton' as button;
+
+.li {
+  width: 100%;
+  display: block;
+  font-family: inherit;
+}
+
+.trigger {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  color: var(--theme-texts-base);
+  background-color: transparent;
+  font-family: inherit;
+
+  // &_isActive {
+  //   color: var(--theme-primary-500);
+  // }
+
+  // &_isDrag {
+  //   background-color: var(--theme-backgrounds-light);
+  // }
+
+  .carret {
+    flex-shrink: 0;
+
+    & > svg {
+      transition: transform 0.2s ease;
+    }
+
+    &_opened > svg {
+      transform: rotate(-90deg);
+    }
+  }
+}
+
+.iconButton {
+  @include button.button;
+
+  display: block;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+}
+
+.ulList {
+  --list-foldable-mah: 0px;
+
+  font-family: inherit;
+
+  position: relative;
+  overflow: hidden;
+  list-style: none;
+
+  display: flex;
+  flex-direction: column;
+  padding-left: 16px;
+
+  transition: 0.2s ease;
+  max-height: var(--list-foldable-mah);
+  min-height: var(--list-foldable-mah);
+
+  &_folded {
+    height: 0px;
+  }
+
+  // &_isDrag {
+  //   background-color: var(--hchy-list-drag-bgc);
+  // }
+
+  &::before {
+    position: absolute;
+    content: '';
+    top: 8px;
+    left: 12px;
+    width: 1px;
+    height: calc(100% - 16px);
+    background-color: var(--theme-accent-200);
+  }
+}

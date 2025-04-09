@@ -1,0 +1,40 @@
+{
+  "name": "@k-art/dropable",
+  "version": "1.0.0",
+  "description": "Rich text component",
+  "license": "ISC",
+  "author": "curillaenator@gmail.com",
+  "publishConfig": {
+    "access": "public",
+    "main": "build/index.js",
+    "types": "build/index.d.ts",
+    "type": "module",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "scripts": {
+    "build": "npx rimraf build && npx yarn build:ts && npx yarn build:scss && npx yarn build:fix",
+    "build:ts": "npx tsc -p tsconfig.json",
+    "build:scss": "npx sass --no-source-map --update src:build",
+    "build:fix": "bash ./bin/fixImports.sh"
+  },
+  "dependencies": {
+    "@k-art/shape": "1.0.5",
+    "@tippyjs/react": "4.2.5",
+    "classnames": "2.5.1",
+    "react-spring": "9.2.4",
+    "tippy.js": "6.3.7"
+  },
+  "devDependencies": {
+    "@k-art/types": "*"
+  },
+  "peerDependencies": {
+    "react": "*"
+  },
+  "files": [
+    "/build",
+    "package.json"
+  ],
+  "type": "module"
+}
