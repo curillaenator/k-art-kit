@@ -25,7 +25,7 @@ export default [
       sourceType: 'module',
 
       parserOptions: {
-        project: ['./tsconfig.base.json'],
+        project: ['./tsconfig.json'],
 
         ecmaFeatures: {
           jsx: true,
@@ -70,7 +70,7 @@ export default [
       '.husky/*',
       '.yarn/*',
       '**/node_modules/*',
-      '**/build/*',
+      '**/build/**',
       '**/*.config.mjs',
       '**/*.config.js',
     ],

@@ -91,7 +91,7 @@ const useResizers = (options: UseResizersOptions) => {
         }
       });
     };
-  }, [resizersTableId, onColumnResize]);
+  }, [resizersTableId, onColumnResize, editor.extensionManager.extensions, editor.isEditable]);
 
   useEffect(() => {
     if (!colgroup || !resizersDomRef.current) return;

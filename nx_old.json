@@ -1,13 +1,5 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
-  "plugins": [
-    {
-      "plugin": "@nx/eslint/plugin",
-      "options": {
-        "targetName": "lint"
-      }
-    }
-  ],
   "targetDefaults": {
     "build": {
       "cache": true,
@@ -20,7 +12,6 @@
     "production": [
       "default",
       "!{projectRoot}/eslint.config.mjs",
-      "!{projectRoot}/eslint.config.old.mjs",
       "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
       "!{projectRoot}/jest.config.[jt]s"
     ],
@@ -40,6 +31,6 @@
       "commit": true,
       "tag": true
     },
-    "changelog": { "projectChangelogs": true, "workspaceChangelog": false, "automaticFromRef": true }
+    "changelog": { "projectChangelogs": true, "workspaceChangelog": false }
   }
 }

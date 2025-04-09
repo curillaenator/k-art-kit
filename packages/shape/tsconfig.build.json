@@ -1,10 +1,9 @@
 {
-  "extends": "@k-art/config/tsconfig.json",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "./build",
     "rootDir": "./src",
-    "baseUrl": "./src",
-    "types": ["react"]
+    "baseUrl": "./src"
   },
   "include": ["src/**/*"]
 }

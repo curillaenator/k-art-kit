@@ -36,7 +36,7 @@ export const ReactNodeViewWidget: FC<UiWidgetProps> = (props) => {
     return () => {
       editor.off('selectionUpdate', setToolbarCanBeShown);
     };
-  }, []);
+  }, [editor, setToolbarCanBeShown]);
 
   if (!colgroup) return null;
 

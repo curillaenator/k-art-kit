@@ -3,19 +3,22 @@
   "version": "1.0.0",
   "description": "Rich text component",
   "license": "ISC",
-  "author": "curillaenator@gmail.com",
-  "publishConfig": {
-    "access": "public",
-    "main": "build/index.js",
-    "types": "build/index.d.ts",
-    "type": "module",
-    "registry": "https://registry.npmjs.org/"
+  "author": {
+    "name": "Kirill Art",
+    "url": "https://github.com/curillaenator"
   },
-  "main": "src/index.ts",
-  "types": "src/index.ts",
+  "files": [
+    "build"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "build/index.js",
+  "module": "build/index.js",
+  "types": "build/index.d.ts",
   "scripts": {
     "build": "npx rimraf build && npx yarn build:ts && npx yarn build:scss && npx yarn build:fix",
-    "build:ts": "npx tsc -p tsconfig.json",
+    "build:ts": "npx tsc -p tsconfig.build.json",
     "build:scss": "npx sass --no-source-map --update src:build",
     "build:fix": "bash ./bin/fixImports.sh"
   },
@@ -32,9 +35,12 @@
   "peerDependencies": {
     "react": "*"
   },
-  "files": [
-    "/build",
-    "package.json"
-  ],
-  "type": "module"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/curillaenator/k-art-kit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/curillaenator/k-art-kit/issues"
+  },
+  "homepage": "https://github.com/curillaenator/k-art-kit#readme"
 }

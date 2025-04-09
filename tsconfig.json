@@ -29,5 +29,7 @@
     "isolatedModules": true,
     "noImplicitOverride": true,
     "types": ["react"]
-  }
+  },
+
+  "exclude": []
 }

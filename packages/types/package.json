@@ -1,14 +1,32 @@
 {
   "name": "@k-art/types",
-  "version": "0.0.1",
-  "license": "UNLICENSED",
-  "main": "src/index",
-  "types": "src/index.d.ts",
-  "private": true,
+  "version": "1.0.0",
+  "license": "ISC",
+  "author": {
+    "name": "Kirill Art",
+    "url": "https://github.com/curillaenator"
+  },
+  "files": [
+    "build"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "build/index.js",
+  "module": "build/index.js",
+  "types": "build/index.d.ts",
   "scripts": {
-    "build": "run -T rimraf build && cp -R src dist"
+    "build": "run -T rimraf build && cp -R src build"
   },
   "devDependencies": {
     "@k-art/theme": "1.1.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/curillaenator/k-art-kit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/curillaenator/k-art-kit/issues"
+  },
+  "homepage": "https://github.com/curillaenator/k-art-kit#readme"
 }

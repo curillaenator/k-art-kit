@@ -1,28 +1,23 @@
+.husky
+
 # Yarn 3
-.yarn/*
+.yarn
 !.yarn/releases
 
 # compiled output
-dist
-build
+**\dist
+**\build
 
 # dependencies
-node_modules
+**\node_modules
 
 # IDE - VSCode
 .vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-
 
 # Env
 .env*
 !.env*.example
 
-
-
-
 # Nx
 .nx/cache
+.nx/workspace-data

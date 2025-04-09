@@ -17,7 +17,7 @@ const WATCH_IDS_FOR_ACTIVE_COMMAND = [
 const WATCH_IDS_FOR_FOCUSED_CONTENT = ['table-items-commands', 'macros-items-commands'];
 
 const DropdownWithActiveCommand: FC<ToolbarActiveComponentDropdownProps> = memo((props) => {
-  const { id, items, defaultValue, editorContentRef, onSelectionUpdateHandlers, ...rest } = props;
+  const { id, items, defaultValue, onSelectionUpdateHandlers, ...rest } = props;
 
   const { editor } = useCurrentEditor();
 
@@ -47,7 +47,7 @@ const DropdownWithActiveCommand: FC<ToolbarActiveComponentDropdownProps> = memo(
 
   useEffect(() => {
     onSelectionUpdateHandlers.current.push(onUpdate);
-  }, [onUpdate]);
+  }, [onUpdate, onSelectionUpdateHandlers]);
 
   return <Dropdown {...rest} items={itemsWithCaptions} value={activeCommand} onChange={noop} closeOnItemClick />;
 });

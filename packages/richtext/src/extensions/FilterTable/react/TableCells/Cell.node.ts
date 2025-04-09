@@ -1,6 +1,6 @@
 import { TableCellOptions } from '@tiptap/extension-table-cell';
 import { mergeAttributes } from '@tiptap/core';
-import { toPairs, keys } from 'lodash';
+import { toPairs } from 'lodash';
 
 import { CoreTableCell } from '../../core/TableCell';
 import type { TableCellAttributes, TableCellOnResizeFn } from '../../core/interfaces';

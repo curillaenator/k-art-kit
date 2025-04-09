@@ -1,5 +1,5 @@
 import React, { forwardRef, CSSProperties } from 'react';
-import styled, { FlattenSimpleInterpolation } from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { fontStyles } from './fontsSettings';
 import { generateTag, getFontFamily } from './helpers';
@@ -8,7 +8,7 @@ import { TypographyProps } from './interfaces';
 
 interface ITypographyStyled {
   fontFamily: string;
-  fontStyles: FlattenSimpleInterpolation;
+  fontStyles: ReturnType<typeof css>;
   color?: CSSProperties['color'];
 }
 

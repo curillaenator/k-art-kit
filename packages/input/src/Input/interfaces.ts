@@ -1,4 +1,4 @@
-import type { FC, HTMLAttributes, SVGAttributes, PropsWithChildren } from 'react';
+import type { FC, HTMLAttributes } from 'react';
 
 type IInputState = 'normal' | 'success' | 'error';
 

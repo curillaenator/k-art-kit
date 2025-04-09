@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import type { Editor as CoreEditor, Editor } from '@tiptap/core';
+import type { Editor as CoreEditor } from '@tiptap/core';
 import type { Transaction } from '@tiptap/pm/state';
 import type { DropdownProps } from '../../components/Dropdown';
 // import type { TocAsideConfig } from 'components/TocAside';

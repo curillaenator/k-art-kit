@@ -1,11 +1,7 @@
-import {
-  useControledDropdown,
-  useAnimation,
-  useCombineControledAnimated,
-} from "@k-art/dropable";
+import { useAnimation } from '@k-art/dropable';
 
-import { resolveOpenNodeIcon } from "./utils";
-import type { DropdownProps, DropdownItemProps } from "../interfaces";
+import { resolveOpenNodeIcon } from './utils';
+import type { DropdownProps, DropdownItemProps } from '../interfaces';
 
 export const useDropdownProps = (props: DropdownProps) => {
   const {
@@ -34,10 +30,7 @@ export const useDropdownProps = (props: DropdownProps) => {
   //   rest,
   // });
 
-  const selectedItem =
-    value !== null
-      ? items.flat().filter((item) => item.id === value)?.[0] || null
-      : null;
+  const selectedItem = value !== null ? items.flat().filter((item) => item.id === value)?.[0] || null : null;
 
   return {
     ...rest,

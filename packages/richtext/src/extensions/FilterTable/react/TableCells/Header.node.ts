@@ -1,6 +1,6 @@
 import { TableHeaderOptions } from '@tiptap/extension-table-header';
 import { mergeAttributes } from '@tiptap/core';
-import { toPairs, keys } from 'lodash';
+import { toPairs } from 'lodash';
 
 import { CoreTableHeader } from '../../core/TableHeader';
 import type { TableCellAttributes, TableCellOnResizeFn } from '../../core/interfaces';

@@ -53,7 +53,7 @@ export const Foldable: FC<FoldableProps> = (props) => {
 
   useEffect(() => {
     if (!!unitData) registerHierarchyItem({ ...unitData, path });
-  }, [unitData]);
+  }, [unitData, path]);
 
   // const { liDropHandlers } = useDragNDrop(props);
 

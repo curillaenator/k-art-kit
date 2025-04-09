@@ -8,4 +8,4 @@ find "$BUILD_DIR" -type f -name "*.js" | while read -r file; do
   # echo "Updated: $file"
 done
 
-echo "✅ Все импорты .module.scss заменены на .module.css!"
+echo "✅ All imports '.module.scss' exchanged by '.module.css'!"

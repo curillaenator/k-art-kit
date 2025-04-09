@@ -1,8 +1,8 @@
 import { useEffect, useCallback } from 'react';
 
-import type { DrawerProps } from '../interfaces';
+import type { ModalProps } from '../interfaces';
 
-export const useCloseOnEscape = (props: DrawerProps) => {
+export const useCloseOnEscape = (props: ModalProps) => {
   const { onClose } = props;
 
   const handleEscape = useCallback(

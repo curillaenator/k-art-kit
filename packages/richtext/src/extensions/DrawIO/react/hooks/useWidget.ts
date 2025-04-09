@@ -1,12 +1,8 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useCallback } from 'react';
 
 import { createDrawIoEmbed } from './utils';
 
-import {
-  DRAWIO_EVENTS,
-  DICT,
-  // AVIOD_FILENAME_SYMBOLS, DEFAULT_FILE_NAME,
-} from '../constants';
+import { DRAWIO_EVENTS } from '../constants';
 
 import type { DrawIoAttributes, DrawIoEvent, DrawIoMessage, UiWidgetProps, DrawIoPostPata } from '../interfaces';
 
@@ -16,9 +12,6 @@ export const useWidget = (props: UiWidgetProps) => {
     node: { attrs },
     updateAttributes,
   } = props;
-
-  // const [src, setSrc] = useState<string | null>(null);
-  // const [isSrcLoading, setIsSrcLoading] = useState(false);
 
   const toggleDrawIo = useCallback(() =>
     // targetSrc?: string

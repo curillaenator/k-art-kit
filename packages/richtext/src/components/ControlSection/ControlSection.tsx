@@ -18,11 +18,11 @@ const ControlSection: FC<ControlSectionProps> = memo((props) => {
   const { id, onSelectionUpdateHandlers, items = [], disabled: sectionDisabled } = props;
   const { editor } = useCurrentEditor();
 
-  const [_, setActiveCommand] = useState<number>(Date.now());
+  const [_, setActiveCommand] = useState<number>(Date.now()); // eslint-disable-line @typescript-eslint/no-unused-vars
 
   useEffect(() => {
     onSelectionUpdateHandlers.current.push(() => setActiveCommand(Date.now()));
-  }, [id, setActiveCommand]);
+  }, [id, setActiveCommand, onSelectionUpdateHandlers]);
 
   return (
     <div className={styles.toolbarSection}>

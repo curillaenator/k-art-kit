@@ -3,18 +3,21 @@
   "version": "1.0.0",
   "description": "Button component",
   "license": "ISC",
-  "author": "curillaenator@gmail.com",
-  "publishConfig": {
-    "access": "public",
-    "main": "build/index.js",
-    "types": "build/index.d.ts",
-    "type": "module",
-    "registry": "https://registry.npmjs.org/"
+  "author": {
+    "name": "Kirill Art",
+    "url": "https://github.com/curillaenator"
   },
-  "main": "src/index.ts",
-  "types": "src/index.ts",
+  "files": [
+    "build"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "build/index.js",
+  "module": "build/index.js",
+  "types": "build/index.d.ts",
   "scripts": {
-    "build": "npx tsc -p tsconfig.json"
+    "build": "npx rimraf build && npx tsc -p tsconfig.build.json"
   },
   "dependencies": {
     "@k-art/loader": "1.0.0",
@@ -28,9 +31,12 @@
     "react": "*",
     "styled-components": "*"
   },
-  "files": [
-    "/build",
-    "package.json"
-  ],
-  "type": "module"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/curillaenator/k-art-kit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/curillaenator/k-art-kit/issues"
+  },
+  "homepage": "https://github.com/curillaenator/k-art-kit#readme"
 }

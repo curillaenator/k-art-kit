@@ -1,5 +1,5 @@
 {
-  "extends": "@k-art/config/tsconfig.json",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "./build",
     "rootDir": "./src",
@@ -8,5 +8,5 @@
       "*": ["*"]
     }
   },
-  "include": ["src"]
+  "include": ["src/**/*"]
 }

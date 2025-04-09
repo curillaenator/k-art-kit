@@ -1,6 +1,5 @@
 import { Heading } from '@tiptap/extension-heading';
 import { mergeAttributes } from '@tiptap/core';
-import { Node as PMNode } from '@tiptap/pm/model';
 import { toPairs } from 'lodash';
 
 import {
