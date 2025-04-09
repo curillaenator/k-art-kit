@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "rootDir": ".",
     "sourceMap": false,
     "declaration": true,
     "importHelpers": true,
@@ -31,5 +30,5 @@
     "types": ["react"]
   },
 
-  "exclude": []
+  "exclude": ["./packages/**/build/*", "./packages/types/*", "./*.config.mjs", "./*.config.js"]
 }

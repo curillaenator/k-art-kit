@@ -5428,9 +5428,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"k-art@workspace:.":
+"k-art-kit@workspace:.":
   version: 0.0.0-use.local
-  resolution: "k-art@workspace:."
+  resolution: "k-art-kit@workspace:."
   dependencies:
     "@nx/eslint": 20.7.2
     "@types/lodash": 4.17.16
