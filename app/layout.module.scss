@@ -1,5 +1,5 @@
-@use '~@k-art/theme/build/scss/colors' as colors;
-@use '~@k-art/theme/build/scss/utils' as utils;
+@use '../theme/colors' as colors;
+@use '../theme/utils' as utils;
 
 @mixin staticColors {
   --theme-white: hsl(0, 0%, 100%);
@@ -37,11 +37,11 @@
   @include staticColors;
 
   color-scheme: light;
-  @include theme.light;
+  @include light;
 
   @media (prefers-color-scheme: dark) {
     color-scheme: dark;
-    @include theme.dark;
+    @include dark;
   }
 }
 

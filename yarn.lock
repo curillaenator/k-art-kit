@@ -2986,6 +2986,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/node@npm:22.14.0":
+  version: 22.14.0
+  resolution: "@types/node@npm:22.14.0"
+  dependencies:
+    undici-types: ~6.21.0
+  checksum: 8bfae1d3c428b122d23750690bdc5b8295a53949823563ec60654a24ece98bde4fc0d2b5f06ddc6def6f01a08dfe62cece7c93e60964b74f736145dad5ee1302
+  languageName: node
+  linkType: hard
+
 "@types/parse-json@npm:^4.0.0":
   version: 4.0.2
   resolution: "@types/parse-json@npm:4.0.2"
@@ -5721,9 +5730,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "k-art-kit@workspace:."
   dependencies:
-    "@k-art/theme": 1.1.0
+    "@k-art/button": 1.0.0
     "@nx/eslint": 20.7.2
     "@types/lodash": 4.17.16
+    "@types/node": 22.14.0
     "@types/react": ">=18.2.0"
     "@types/react-dom": ">=18.2.0"
     "@typescript-eslint/eslint-plugin": 8.29.1
@@ -8274,6 +8284,13 @@ __metadata:
     has-symbols: ^1.1.0
     which-boxed-primitive: ^1.1.1
   checksum: 729f13b84a5bfa3fead1d8139cee5c38514e63a8d6a437819a473e241ba87eeb593646568621c7fc7f133db300ef18d65d1a5a60dc9c7beb9000364d93c581df
+  languageName: node
+  linkType: hard
+
+"undici-types@npm:~6.21.0":
+  version: 6.21.0
+  resolution: "undici-types@npm:6.21.0"
+  checksum: 46331c7d6016bf85b3e8f20c159d62f5ae471aba1eb3dc52fff35a0259d58dcc7d592d4cc4f00c5f9243fa738a11cfa48bd20203040d4a9e6bc25e807fab7ab3
   languageName: node
   linkType: hard
 

@@ -12,8 +12,8 @@ import {
   TbLayoutSidebarRightExpand,
   TbInfoHexagon,
   TbLayout,
-  TbLogin,
-  TbLogout,
+  // TbLogin,
+  // TbLogout,
   TbCat,
 } from 'react-icons/tb';
 
@@ -25,8 +25,8 @@ import styles from './aside.module.scss';
 
 const NAV = [
   { title: 'Home', href: '/', Icon: TbCat },
-  { title: 'Blog', href: '/posts', Icon: TbLayout },
-  { title: 'My profile', href: '/profile', Icon: TbInfoHexagon },
+  // { title: 'Blog', href: '/posts', Icon: TbLayout },
+  // { title: 'My profile', href: '/profile', Icon: TbInfoHexagon },
 ];
 
 const isActive = (route: string, pathname: string) => {
@@ -35,12 +35,10 @@ const isActive = (route: string, pathname: string) => {
 };
 
 const Aside: FC = () => {
-  const { isAsideOpen, darkmode } = useUnit($appStore);
+  const { isAsideOpen } = useUnit($appStore);
 
   const pathname = usePathname();
   // const session = useSession();
-
-  const buttonAppearance: ComponentAppearance = darkmode ? 'secondary' : 'secondary-alt';
 
   return (
     <aside
@@ -53,7 +51,7 @@ const Aside: FC = () => {
           <h1>NextJS</h1>
         </div>
 
-        <Button onClick={() => toggleAside()} appearance={buttonAppearance}>
+        <Button onClick={() => toggleAside()} appearance='secondary'>
           {isAsideOpen ? <TbLayoutSidebarRightExpand /> : <TbLayoutSidebarLeftExpand />}
         </Button>
       </header>
@@ -66,7 +64,7 @@ const Aside: FC = () => {
             href={href}
             fullwidth
             active={isActive(href, pathname)}
-            appearance={buttonAppearance}
+            appearance='secondary'
             children={
               <>
                 <Icon /> {title}
@@ -76,7 +74,7 @@ const Aside: FC = () => {
         ))}
       </nav>
 
-      <footer>
+      {/* <footer>
         <Button
           component={Link}
           // href={session?.data ? '#' : '/api/auth/signin'}
@@ -98,7 +96,7 @@ const Aside: FC = () => {
             if (session?.data) signOut({ callbackUrl: '/' });
           }}
         />
-      </footer>
+      </footer> */}
     </aside>
   );
 };

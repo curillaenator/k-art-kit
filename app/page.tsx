@@ -7,7 +7,7 @@ import HeroImg from '@/assets/hero.jpg';
 import styles from './page.module.scss';
 
 export const metadata: Metadata = {
-  title: 'NextJS EduApp',
+  title: 'Welcome to @k-art UI kit',
 };
 
 function Home() {

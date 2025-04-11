@@ -1,5 +1,7 @@
 .husky
 
+.next
+
 # Yarn 3
 .yarn
 !.yarn/releases

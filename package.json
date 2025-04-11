@@ -9,13 +9,13 @@
     "url": "https://github.com/curillaenator"
   },
   "scripts": {
-    "docs": "npx next dev --turbopack",
-    "build": "npx nx run-many -t build",
-    "clear": "npx nx reset && bash ./bin/clean-builds.sh",
+    "dev:docs": "npx next dev --turbopack",
+    "build:pkg": "npx nx run-many -t build",
+    "build:clear": "npx nx reset && bash ./bin/clean-builds.sh",
     "lint": "npx eslint ./packages --fix --quiet"
   },
   "dependencies": {
-    "@k-art/theme": "1.1.0",
+    "@k-art/button": "1.0.0",
     "classnames": "2.5.1",
     "lodash": "4.17.21",
     "next": "15.3.0",
@@ -26,6 +26,7 @@
   "devDependencies": {
     "@nx/eslint": "20.7.2",
     "@types/lodash": "4.17.16",
+    "@types/node": "22.14.0",
     "@types/react": ">=18.2.0",
     "@types/react-dom": ">=18.2.0",
     "@typescript-eslint/eslint-plugin": "8.29.1",
