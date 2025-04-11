@@ -1,6 +1,7 @@
 import { Transition } from '@headlessui/react';
 import styled from 'styled-components';
 
+//@ts-expect-error
 const ModalContainer = styled(Transition)`
   position: fixed;
   top: 0;

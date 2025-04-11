@@ -19,10 +19,10 @@ const Drawer: FC<PropsWithChildren<DrawerProps>> = (props) => {
   const portal = usePortal(portalId);
 
   return ReactDOM.createPortal(
-    //@ts-expect-error
     <DrawerContainer appear show={open} unmount>
       <DrawerOverlay {...props} />
 
+      {/* @ts-expect-error */}
       <Transition.Child as={Fragment} {...getAnimationCns('content')}>
         <DrawerContent className={contentClassName}>{children}</DrawerContent>
       </Transition.Child>

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 const DRAWER_W = '420px';
 
+//@ts-expect-error
 const DrawerContainer = styled(Transition)`
   position: fixed;
   top: 0;

@@ -18,10 +18,10 @@ const Modal: FC<PropsWithChildren<ModalProps>> = (props) => {
   const portal = usePortal(portalId);
 
   return ReactDOM.createPortal(
-    //@ts-expect-error
     <ModalContainer show={open} appear unmount>
       <ModalOverlay {...props} />
 
+      {/* @ts-expect-error */}
       <Transition.Child {...getAnimationCns('overlay')}>
         <ModalContent borderRadius={borderRadius}>
           <Corners borderRadius={borderRadius} />
