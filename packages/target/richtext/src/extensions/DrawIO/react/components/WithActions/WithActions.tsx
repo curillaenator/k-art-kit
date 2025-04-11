@@ -1,35 +1,23 @@
-import React, { FC } from "react";
-import { fromPairs, toPairs } from "lodash";
+import React, { FC } from 'react';
+import { fromPairs, toPairs } from 'lodash';
 
-import { ButtonGhost } from "@k-art/button";
+import { Button } from '@k-art/button';
 
-import { usePanZoom } from "../../../../hooks/usePanZoom";
-import { useDrawioContext } from "../../context";
+import { usePanZoom } from '../../../../hooks/usePanZoom';
+import { useDrawioContext } from '../../context';
 
-import {
-  WidgetIconEdit,
-  WidgetIconDelete,
-  ZoomOutIcon,
-  ZoomInIcon,
-  ResetIcon,
-} from "../../icons";
+// import { WidgetIconEdit, WidgetIconDelete, ZoomOutIcon, ZoomInIcon, ResetIcon } from '../../icons';
 
-import type { WithActionsProps } from "./interfaces";
-import type { DrawIoAttributes } from "../../interfaces";
+import type { WithActionsProps } from './interfaces';
+import type { DrawIoAttributes } from '../../interfaces';
 
-import styles from "./withactions.module.scss";
+import styles from './withactions.module.scss';
 
 const handleAttrs = (nodeAttrs: DrawIoAttributes) =>
-  fromPairs(
-    toPairs(nodeAttrs).map(([k, v]) => [`data-${k.toLowerCase()}`, String(v)])
-  );
+  fromPairs(toPairs(nodeAttrs).map(([k, v]) => [`data-${k.toLowerCase()}`, String(v)]));
 
 export const WithActions: FC<WithActionsProps> = (props) => {
-  const {
-    isDrawioEditorAvailable = false,
-    hasPreview = false,
-    children,
-  } = props;
+  const { isDrawioEditorAvailable = false, hasPreview = false, children } = props;
 
   const {
     toggleDrawIo,
@@ -69,8 +57,8 @@ export const WithActions: FC<WithActionsProps> = (props) => {
 
         <div className={styles.actions}>
           {editor.options.editable && (
-            <ButtonGhost
-              LeftIcon={WidgetIconEdit}
+            <Button
+              // LeftIcon={WidgetIconEdit}
               onClick={() => toggleDrawIo()}
               disabled={!isDrawioEditorAvailable}
             />
@@ -78,8 +66,8 @@ export const WithActions: FC<WithActionsProps> = (props) => {
 
           {hasPreview && (
             <>
-              <ButtonGhost
-                LeftIcon={ZoomOutIcon}
+              <Button
+                // LeftIcon={ZoomOutIcon}
                 onClick={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
@@ -88,8 +76,8 @@ export const WithActions: FC<WithActionsProps> = (props) => {
                 }}
               />
 
-              <ButtonGhost
-                LeftIcon={ZoomInIcon}
+              <Button
+                // LeftIcon={ZoomInIcon}
                 onClick={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
@@ -98,9 +86,9 @@ export const WithActions: FC<WithActionsProps> = (props) => {
                 }}
               />
 
-              <ButtonGhost
+              <Button
                 disabled={!isPanZoomTouched}
-                LeftIcon={ResetIcon}
+                // LeftIcon={ResetIcon}
                 onClick={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
@@ -112,7 +100,10 @@ export const WithActions: FC<WithActionsProps> = (props) => {
           )}
 
           {editor.options.editable && (
-            <ButtonGhost LeftIcon={WidgetIconDelete} onClick={deleteNode} />
+            <Button
+              // LeftIcon={WidgetIconDelete}
+              onClick={deleteNode}
+            />
           )}
         </div>
       </div>

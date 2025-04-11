@@ -1,0 +1,61 @@
+$asideMin: 88px;
+$asideMax: 384px;
+
+.aside {
+  display: flex;
+  flex-direction: column;
+
+  flex: 0 0 auto;
+
+  width: $asideMin;
+  height: 100vh;
+
+  transition: width 200ms ease;
+
+  border-right: 1px solid var(--theme-neutral-300);
+
+  background:
+    no-repeat url('./assets/asideTexture.png'),
+    var(--layout-aside-bgc);
+  background-position: center;
+  background-size: cover;
+  background-blend-mode: var(--layout-aside-bgc-blend-mode, overlay);
+
+  &_open {
+    width: $asideMax;
+  }
+
+  & > header,
+  & > footer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex: 0 0 auto;
+    padding: var(--layout-pd);
+  }
+
+  & > header {
+    border-bottom: 1px solid var(--theme-neutral-400);
+  }
+
+  & > footer {
+    border-top: 1px solid var(--theme-neutral-400);
+  }
+
+  & > nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: var(--layout-pd);
+
+    width: 100%;
+    flex: 1 1 auto;
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  flex: 1 1 auto;
+  overflow: hidden;
+}

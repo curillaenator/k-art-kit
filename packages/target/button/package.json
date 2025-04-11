@@ -17,19 +17,17 @@
   "module": "build/index.js",
   "types": "build/index.d.ts",
   "scripts": {
-    "build": "npx rimraf build && npx tsc -p tsconfig.build.json"
-  },
-  "dependencies": {
-    "@k-art/loader": "1.0.0",
-    "@k-art/shape": "1.0.5",
-    "@k-art/typography": "1.0.0"
+    "build": "npx rimraf build && npx yarn build:ts && npx yarn build:scss && npx yarn build:fix",
+    "build:ts": "npx tsc -p tsconfig.build.json",
+    "build:scss": "npx sass --no-source-map --update src:build",
+    "build:fix": "bash ./bin/fixImports.sh"
   },
   "devDependencies": {
     "@k-art/types": "*"
   },
   "peerDependencies": {
-    "react": "*",
-    "styled-components": "*"
+    "@k-art/theme": "*",
+    "react": "*"
   },
   "repository": {
     "type": "git",

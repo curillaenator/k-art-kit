@@ -1,3 +1,4 @@
+import React from 'react';
 import { Layout } from '@/features/layout';
 
 import './globals.scss';

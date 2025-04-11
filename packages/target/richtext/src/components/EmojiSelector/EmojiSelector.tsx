@@ -1,17 +1,18 @@
-import React, { FC } from "react";
-import { useCurrentEditor } from "@tiptap/react";
-import { toPairs } from "lodash";
+/** eslint-disable @typescript-eslint/no-unused-vars */
+import React, { FC } from 'react';
+import { useCurrentEditor } from '@tiptap/react';
+import { toPairs } from 'lodash';
 
-import { Dropable } from "@k-art/dropable";
-import { ButtonGhost } from "@k-art/button";
-import { ToolbarButton } from "../ToolbarButton";
+import { Dropable } from '@k-art/dropable';
+import { Button } from '@k-art/button';
+import { ToolbarButton } from '../ToolbarButton';
 
-import { useDropdown } from "./hooks/useDropdown";
+import { useDropdown } from './hooks/useDropdown';
 
-import { namesToEmoji } from "./emojis";
+import { namesToEmoji } from './emojis';
 
-import type { EmojiSelectorProps } from "./interfaces";
-import styles from "./emojiselector.module.scss";
+import type { EmojiSelectorProps } from './interfaces';
+import styles from './emojiselector.module.scss';
 
 export const EmojiSelector: FC<EmojiSelectorProps> = (props) => {
   const { editor } = useCurrentEditor();
@@ -30,6 +31,8 @@ export const EmojiSelector: FC<EmojiSelectorProps> = (props) => {
     ...rest
   } = useDropdown(props);
 
+  console.log('EmojiSelector', id, disabled, editorContentRef, onSelectionUpdateHandlers);
+
   if (!editor) return null;
 
   return (
@@ -40,21 +43,16 @@ export const EmojiSelector: FC<EmojiSelectorProps> = (props) => {
       closeOnItemClick
       openNode={
         <div>
-          <ToolbarButton
-            active={isOpen}
-            onClick={() => setTimeout(() => editor.commands.focus(), 20)}
-          >
-            <span style={{ width: "24px", textAlign: "center" }}>
-              {namesToEmoji["smile"]}
-            </span>
+          <ToolbarButton active={isOpen} onClick={() => setTimeout(() => editor.commands.focus(), 20)}>
+            <span style={{ width: '24px', textAlign: 'center' }}>{namesToEmoji['smile']}</span>
           </ToolbarButton>
         </div>
       }
     >
       <div className={styles.emoji}>
         {toPairs(namesToEmoji).map(([shortName, emojiVal]) => (
-          <ButtonGhost
-            height={32}
+          <Button
+            // height={32}
             key={shortName}
             title={emojiVal}
             onClick={() => {

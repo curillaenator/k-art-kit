@@ -1,0 +1,75 @@
+@use './cssv/appearances' as appearances;
+@use './cssv/sizes' as sizes;
+
+.button {
+  flex: 0 0 auto;
+  display: flex;
+  gap: var(--component-gap);
+
+  width: fit-content;
+  height: var(--component-h);
+  padding: var(--component-pd);
+  border-radius: var(--component-bdrs);
+
+  background-color: var(--component-bgc);
+
+  font-family: var(--font-geist);
+  font-size: var(--component-fz);
+  line-height: var(--component-lh);
+  color: var(--component-text);
+
+  border: none;
+  outline: none;
+  overflow: hidden;
+
+  &_active {
+    background-color: var(--component-bgc-p);
+    color: var(--component-text-p);
+  }
+
+  &:not(:disabled) {
+    cursor: pointer;
+  }
+
+  &:not(:disabled):not(.button_active) {
+    &:hover {
+      color: var(--component-text-h);
+      background-color: var(--component-bgc-h);
+    }
+
+    &:active {
+      color: var(--component-text-a);
+      background-color: var(--component-bgc-a);
+    }
+  }
+
+  &_fullwidth {
+    width: 100%;
+  }
+
+  &_centered {
+    justify-content: center;
+  }
+
+  & > svg {
+    width: 24px;
+    height: 24px;
+    flex: 0 0 auto;
+  }
+
+  @each $appearance, $values in appearances.$appearances {
+    &_#{'' + $appearance} {
+      @each $prop, $v in $values {
+        --component-#{'' + $prop}: #{$v};
+      }
+    }
+  }
+
+  @each $size, $values in sizes.$sizes {
+    &_#{'' + $size} {
+      @each $prop, $v in $values {
+        --component-#{'' + $prop}: #{$v};
+      }
+    }
+  }
+}

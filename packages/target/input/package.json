@@ -20,7 +20,6 @@
     "build": "npx rimraf build && npx tsc -p tsconfig.build.json"
   },
   "dependencies": {
-    "@k-art/button": "1.0.0",
     "@k-art/shape": "1.0.5",
     "@k-art/typography": "1.0.0"
   },

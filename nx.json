@@ -27,7 +27,7 @@
     "sharedGlobals": []
   },
   "release": {
-    "projects": ["packages/base/*", "packages/target/*"],
+    "projects": ["packages/*"],
     "projectsRelationship": "independent",
     "version": {
       "generatorOptions": {

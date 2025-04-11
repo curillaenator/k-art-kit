@@ -1,27 +1,19 @@
-import React, {
-  forwardRef,
-  useState,
-  useRef,
-  useImperativeHandle,
-} from "react";
+import React, { forwardRef, useState, useRef, useImperativeHandle } from 'react';
 
-import { ButtonGhost } from "@k-art/button";
-import { Typography } from "@k-art/typography";
+import { Typography } from '@k-art/typography';
 
-import { InputStyled } from "./input.styled";
-import { InputProps } from "./interfaces";
+import { InputStyled } from './input.styled';
+import { InputProps } from './interfaces';
 
 const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   const {
-    state = "normal",
-    type = "text",
+    state = 'normal',
+    type = 'text',
     icon: Icon,
     name,
     description,
     value,
     limitSymbols,
-    buttonTitle,
-    withButton = false,
     onChange,
     onFocusOut,
     ...rest
@@ -58,38 +50,32 @@ const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
       onFocus={handleFocus}
       onBlur={handleBlur}
     >
-      <div className="input">
+      <div className='input'>
         {!!Icon && <Icon />}
 
         <input
           {...rest}
           ref={inputRef}
-          className="input-input"
+          className='input-input'
           type={type}
           name={name}
-          autoComplete="off"
+          autoComplete='off'
           value={value}
           onChange={(e) => {
             if (e.target.value?.length >= (limitSymbols || Infinity)) return;
             onChange?.(e);
           }}
         />
-
-        {withButton && (
-          <div className="input-button">
-            <ButtonGhost ref={inputButtonRef} title={buttonTitle || ""} />
-          </div>
-        )}
       </div>
 
       {(description || limitSymbols) && (
-        <div className="subinput">
-          <Typography type="TextRegular11" className="subinput-text">
-            {description || ""}
+        <div className='subinput'>
+          <Typography type='TextRegular11' className='subinput-text'>
+            {description || ''}
           </Typography>
 
           {limitSymbols && (
-            <Typography type="TextRegular11" className="subinput-text">
+            <Typography type='TextRegular11' className='subinput-text'>
               {`${value.length}/${limitSymbols}`}
             </Typography>
           )}

@@ -1,22 +1,18 @@
-import React, { FC, memo, Fragment } from "react";
-import { useCurrentEditor } from "@tiptap/react";
-import { ButtonGhost } from "@k-art/button";
-import { Dropable } from "@k-art/dropable";
+import React, { FC, memo, Fragment } from 'react';
+import { useCurrentEditor } from '@tiptap/react';
+import { Button } from '@k-art/button';
+import { Dropable } from '@k-art/dropable';
 
-import { useSelect } from "../hooks/useSelect";
-import { TABLE_EDIT_ITEMS, TABLE_COLOR_ITEMS } from "./table.edit";
+import { useSelect } from '../hooks/useSelect';
+import { TABLE_EDIT_ITEMS, TABLE_COLOR_ITEMS } from './table.edit';
 
-import TableColorFill from "../svg/color-palette.svg";
+import TableColorFill from '../svg/color-palette.svg';
 
-import { DEFAULT_CAPTIONS } from "../../../../components/constants";
-import styles from "./toolbar.module.scss";
+import { DEFAULT_CAPTIONS } from '../../../../components/constants';
+import styles from './toolbar.module.scss';
 
 const Toolbar: FC = memo(() => {
-  const {
-    isOpen: isBgcOpen = false,
-    closeDropdown: closeBgc,
-    ...bgcRest
-  } = useSelect();
+  const { isOpen: isBgcOpen = false, closeDropdown: closeBgc, ...bgcRest } = useSelect();
 
   const { editor } = useCurrentEditor();
 
@@ -32,18 +28,14 @@ const Toolbar: FC = memo(() => {
             command,
             // shouldBeDisabled
           }) => {
-            if (id.includes("splitter"))
-              return <div key={id} className={styles.splitter} />;
+            if (id.includes('splitter')) return <div key={id} className={styles.splitter} />;
 
             return (
-              <ButtonGhost
-                key={id}
-                LeftIcon={Icon}
-                onClick={() => command?.(editor.chain())}
-                className={styles.button}
-              />
+              <Button key={id} onClick={() => command?.(editor.chain())} className={styles.button}>
+                {Icon && <Icon />}
+              </Button>
             );
-          }
+          },
         )}
       </div>
 
@@ -53,36 +45,43 @@ const Toolbar: FC = memo(() => {
           offset={[0, 4]}
           openNode={
             <div>
-              <ButtonGhost
+              <Button
                 active={isBgcOpen}
-                LeftIcon={TableColorFill}
                 onClick={() => setTimeout(() => editor?.commands.focus(), 20)}
                 className={styles.button}
-              />
+              >
+                <TableColorFill />
+              </Button>
             </div>
           }
         >
           {[TABLE_COLOR_ITEMS]
             .filter((group) => !!group.length)
             .map((group, groupIdx) => (
-              <Fragment key={group.map((el) => el.id).join("_")}>
+              <Fragment key={group.map((el) => el.id).join('_')}>
                 {groupIdx > 0 && <div className={styles.divider} />}
 
-                {group.map(({ id, command, Icon }) => (
-                  <ButtonGhost
-                    key={id}
-                    height={32}
-                    LeftIcon={Icon}
-                    // @ts-expect-error
-                    title={DEFAULT_CAPTIONS[id]}
-                    onClick={() => {
-                      if (!!editor) {
-                        command?.(editor.chain());
-                        closeBgc?.();
-                      }
-                    }}
-                  />
-                ))}
+                {group.map(
+                  ({
+                    id,
+                    command,
+                    // Icon
+                  }) => (
+                    <Button
+                      key={id}
+                      // height={32}
+                      // LeftIcon={Icon}
+                      // @ts-expect-error
+                      title={DEFAULT_CAPTIONS[id]}
+                      onClick={() => {
+                        if (!!editor) {
+                          command?.(editor.chain());
+                          closeBgc?.();
+                        }
+                      }}
+                    />
+                  ),
+                )}
               </Fragment>
             ))}
         </Dropable>

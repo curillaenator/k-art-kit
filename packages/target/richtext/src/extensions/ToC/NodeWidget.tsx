@@ -1,29 +1,25 @@
-import React, { FC, useCallback, useState, useEffect } from "react";
-import { Editor as CoreEditor } from "@tiptap/core";
-import { NodeViewWrapper } from "@tiptap/react";
-import { scroller } from "react-scroll";
-import { debounce } from "lodash";
-import cn from "classnames";
+import React, { FC, useCallback, useState, useEffect } from 'react';
+import { Editor as CoreEditor } from '@tiptap/core';
+import { NodeViewWrapper } from '@tiptap/react';
+import { scroller } from 'react-scroll';
+import { debounce } from 'lodash';
+import cn from 'classnames';
 
-import type { Transaction } from "@tiptap/pm/state";
-import type { ReplaceStep } from "@tiptap/pm/transform";
+import type { Transaction } from '@tiptap/pm/state';
+import type { ReplaceStep } from '@tiptap/pm/transform';
 
-import { ButtonGhost } from "@k-art/button";
+import { Button } from '@k-art/button';
 
 // import { getHeadingScrollHash } from '../Heading';
 import {
   DeleteIcon,
   CarretDownIcon,
   // LinkIcon
-} from "./icons";
+} from './icons';
 
-import { TOC_MAX_TITLE_LENGTH } from "./constants";
-import type {
-  TocReactNodeViewProps,
-  TocNodeAttributes,
-  TocNodeItem,
-} from "./interfaces";
-import styles from "./toc.module.scss";
+import { TOC_MAX_TITLE_LENGTH } from './constants';
+import type { TocReactNodeViewProps, TocNodeAttributes, TocNodeItem } from './interfaces';
+import styles from './toc.module.scss';
 
 const TocNodeWidget: FC<TocReactNodeViewProps> = (props) => {
   const { editor, node, updateAttributes, extension, deleteNode } = props;
@@ -41,13 +37,11 @@ const TocNodeWidget: FC<TocReactNodeViewProps> = (props) => {
 
       ed.state.doc.descendants((descNode, descPos) => {
         // const isHeadingElement = descNode.type.name === 'heading' && !!descNode.attrs['id'];
-        const isHeadingElement = descNode.type.name === "heading";
+        const isHeadingElement = descNode.type.name === 'heading';
 
         if (!isHeadingElement) return;
 
-        const isInRange =
-          descNode.attrs["level"] >= minLevel &&
-          descNode.attrs["level"] <= maxLevel;
+        const isInRange = descNode.attrs['level'] >= minLevel && descNode.attrs['level'] <= maxLevel;
         if (!isInRange) return;
 
         toc.push({ node: descNode, pos: descPos });
@@ -55,13 +49,10 @@ const TocNodeWidget: FC<TocReactNodeViewProps> = (props) => {
 
       setTocItems(toc);
     }, 200),
-    []
+    [],
   );
 
-  useEffect(
-    () => calcTocItems(editor, attrs),
-    [editor, attrs, calcTocItems, timestamp]
-  );
+  useEffect(() => calcTocItems(editor, attrs), [editor, attrs, calcTocItems, timestamp]);
 
   const scrollOpts = {
     smooth: true,
@@ -71,36 +62,26 @@ const TocNodeWidget: FC<TocReactNodeViewProps> = (props) => {
   };
 
   useEffect(() => {
-    const onTransaction = ({
-      transaction: tr,
-    }: {
-      editor: CoreEditor;
-      transaction: Transaction;
-    }) => {
-      if (
-        !tr.steps.some(
-          (st) => (st as ReplaceStep & { structure: boolean })?.structure
-        )
-      )
-        return;
+    const onTransaction = ({ transaction: tr }: { editor: CoreEditor; transaction: Transaction }) => {
+      if (!tr.steps.some((st) => (st as ReplaceStep & { structure: boolean })?.structure)) return;
       updateAttributes({ ...attrs, timestamp: Date.now() });
     };
 
-    editor.on("transaction", onTransaction);
+    editor.on('transaction', onTransaction);
 
     return () => {
-      editor.off("transaction", onTransaction);
+      editor.off('transaction', onTransaction);
     };
   }, [editor, attrs, updateAttributes]);
 
   return (
-    <NodeViewWrapper as="nav" className={styles.toctainer}>
+    <NodeViewWrapper as='nav' className={styles.toctainer}>
       <div className={styles.tochead}>
         <input
           readOnly={!editor.isEditable}
           className={styles.tocTitleInput}
           value={node.attrs.title}
-          type="text"
+          type='text'
           onChange={(e) => {
             if (e.target.value.length >= TOC_MAX_TITLE_LENGTH) return;
             updateAttributes({ ...attrs, title: e.target.value });
@@ -109,62 +90,53 @@ const TocNodeWidget: FC<TocReactNodeViewProps> = (props) => {
 
         {editor.isEditable && (
           <div className={styles.tocbar}>
-            <ButtonGhost
-              LeftIcon={CarretDownIcon}
+            <Button
               onClick={() => setCollapsed((prev) => !prev)}
               className={cn(styles.carretLeft, {
                 [styles.carretLeft_collapsed]: collapsed,
               })}
-            />
+            >
+              <CarretDownIcon />
+            </Button>
 
-            <ButtonGhost LeftIcon={DeleteIcon} onClick={() => deleteNode()} />
+            <Button onClick={() => deleteNode()}>
+              <DeleteIcon />
+            </Button>
           </div>
         )}
       </div>
 
       {!collapsed && (
         <ul className={styles.toclist}>
-          {tocItems.map(
-            ({
-              node: { attrs: headingAttrs, textContent: headingContent },
-              pos: headingPos,
-            }) => (
-              <li
-                key={`toc-li-${headingAttrs["id"]}-${headingPos || ""}`}
-                className={cn(
-                  styles.tocitem,
-                  styles[
-                    `tocitem_level${
-                      (headingAttrs["level"] || 1) - attrs["minLevel"]
-                    }`
-                  ],
-                  {
-                    [styles.tocitem_invisible]:
-                      (headingAttrs["level"] || 1) - attrs["minLevel"] < 0,
-                  }
-                )}
+          {tocItems.map(({ node: { attrs: headingAttrs, textContent: headingContent }, pos: headingPos }) => (
+            <li
+              key={`toc-li-${headingAttrs['id']}-${headingPos || ''}`}
+              className={cn(
+                styles.tocitem,
+                styles[`tocitem_level${(headingAttrs['level'] || 1) - attrs['minLevel']}`],
+                {
+                  [styles.tocitem_invisible]: (headingAttrs['level'] || 1) - attrs['minLevel'] < 0,
+                },
+              )}
+            >
+              <span
+                className={styles.tocitemCaption}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+
+                  const skip =
+                    !headingAttrs['id'] ||
+                    !extension.options.scrollContainerId ||
+                    !document.getElementById(extension.options.scrollContainerId);
+
+                  if (!skip) scroller.scrollTo(headingAttrs['id'], scrollOpts);
+                }}
               >
-                <span
-                  className={styles.tocitemCaption}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
+                {headingContent}
+              </span>
 
-                    const skip =
-                      !headingAttrs["id"] ||
-                      !extension.options.scrollContainerId ||
-                      !document.getElementById(
-                        extension.options.scrollContainerId
-                      );
-
-                    if (!skip)
-                      scroller.scrollTo(headingAttrs["id"], scrollOpts);
-                  }}
-                >
-                  {headingContent}
-                </span>
-
-                {/* <ButtonGhost
+              {/* <ButtonGhost
                 LeftIcon={LinkIcon}
                 height={24}
                 onClick={(e) => {
@@ -176,9 +148,8 @@ const TocNodeWidget: FC<TocReactNodeViewProps> = (props) => {
                   navigator.clipboard.writeText(url.href);
                 }}
               /> */}
-              </li>
-            )
-          )}
+            </li>
+          ))}
         </ul>
       )}
     </NodeViewWrapper>

@@ -1,14 +1,8 @@
-import React, {
-  useState,
-  useRef,
-  useEffect,
-  FC,
-  type MouseEventHandler,
-} from "react";
-import styled, { keyframes } from "styled-components";
-import { ButtonGhost } from "@k-art/button";
-import { compose } from "./utils";
-import type { ContextMenuProps } from "./interfaces";
+import React, { useState, useRef, useEffect, FC, type MouseEventHandler } from 'react';
+import styled, { keyframes } from 'styled-components';
+import { Button } from '@k-art/button';
+import { compose } from './utils';
+import type { ContextMenuProps } from './interfaces';
 
 const fadeIn = keyframes`
   0% {
@@ -66,23 +60,18 @@ export const ContextMenu: FC<ContextMenuProps> = ({ children, items }) => {
   };
 
   useEffect(() => {
-    document.addEventListener("mousedown", onClickOff);
+    document.addEventListener('mousedown', onClickOff);
 
-    return () => document.removeEventListener("mousedown", onClickOff);
+    return () => document.removeEventListener('mousedown', onClickOff);
   }, []);
 
   return (
     <div ref={menuRef} onContextMenu={onContextMenu}>
       {open && (
-        <MenuStyled
-          style={{ position: "absolute", left: location.x, top: location.y }}
-        >
+        <MenuStyled style={{ position: 'absolute', left: location.x, top: location.y }}>
           {items.map((item) => (
-            <div className="menuitem" key={item.title}>
-              <ButtonGhost
-                {...item}
-                onClick={() => compose([handleOpen, item.handler])}
-              />
+            <div className='menuitem' key={item.title}>
+              <Button {...item} onClick={() => compose([handleOpen, item.handler])} />
             </div>
           ))}
         </MenuStyled>

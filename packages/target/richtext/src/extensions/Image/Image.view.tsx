@@ -1,27 +1,28 @@
-import React, { FC, useCallback, useRef } from "react";
-import { NodeViewWrapper, type NodeViewProps } from "@tiptap/react";
-import resizeImage, {
-  type typeOptions as ResizeImageOptions,
-} from "image-resize";
-import { isEqual } from "lodash";
-import cn from "classnames";
+import React, { FC, useCallback, useRef } from 'react';
+import { NodeViewWrapper, type NodeViewProps } from '@tiptap/react';
+import resizeImage, { type typeOptions as ResizeImageOptions } from 'image-resize';
+import { isEqual } from 'lodash';
+import cn from 'classnames';
 
-import { ButtonGhost } from "@k-art/button";
-import { Dropable } from "@k-art/dropable";
+import { Button } from '@k-art/button';
+import { Dropable } from '@k-art/dropable';
 
-import { usePanZoom } from "../hooks/usePanZoom";
-import { useDropable } from "../hooks/useDropable";
+import { usePanZoom } from '../hooks/usePanZoom';
+import { useDropable } from '../hooks/useDropable';
 
-import { DeleteIcon, ZoomOutIcon, ZoomInIcon, ImageLoad } from "./icons";
+import {
+  // DeleteIcon, ZoomOutIcon, ZoomInIcon,
+  ImageLoad,
+} from './icons';
 
-import type { ImageAttributes } from "./interfaces";
-import styles from "./image.module.scss";
+import type { ImageAttributes } from './interfaces';
+import styles from './image.module.scss';
 
 /**
  * @description resizeImage https://github.com/kode-team/image-resize
  */
 const IMAGE_RESIZE_SETUP: ResizeImageOptions = {
-  format: "jpg",
+  format: 'jpg',
   height: 720,
   quality: 0.7,
   sharpen: 0.9,
@@ -33,11 +34,7 @@ const ImageView: FC<NodeViewProps> = (props) => {
   const attrs = node.attrs as ImageAttributes;
   const { src, pos, scale, height } = attrs;
 
-  const {
-    isOpen: isHeightOpen,
-    closeDropdown: closeHeight,
-    ...restHeight
-  } = useDropable();
+  const { isOpen: isHeightOpen, closeDropdown: closeHeight, ...restHeight } = useDropable();
 
   const onPanEndCb = useCallback(
     ({ x, y }: { x: number; y: number }) => {
@@ -46,7 +43,7 @@ const ImageView: FC<NodeViewProps> = (props) => {
       newAttrs.pos = [x, y];
       if (!isEqual(attrs, newAttrs)) updateAttributes(newAttrs);
     },
-    [attrs, updateAttributes]
+    [attrs, updateAttributes],
   );
 
   const onZoomEnd = useCallback(
@@ -56,7 +53,7 @@ const ImageView: FC<NodeViewProps> = (props) => {
       newAttrs.scale = scale;
       if (!isEqual(attrs, newAttrs)) updateAttributes(newAttrs);
     },
-    [attrs, updateAttributes]
+    [attrs, updateAttributes],
   );
 
   const {
@@ -78,27 +75,20 @@ const ImageView: FC<NodeViewProps> = (props) => {
 
   const updateSrcAttribute = useCallback(
     async (imageFile: File) => {
-      const resizedImageFile = (await resizeImage(
-        imageFile,
-        IMAGE_RESIZE_SETUP
-      )) as string;
+      const resizedImageFile = (await resizeImage(imageFile, IMAGE_RESIZE_SETUP)) as string;
 
       updateAttributes({ ...attrs, src: resizedImageFile });
     },
-    [attrs, updateAttributes]
+    [attrs, updateAttributes],
   );
 
   return (
     <NodeViewWrapper
-      as="div"
+      as='div'
       ref={imageContainerRef}
       style={{ height }}
-      onMouseDown={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) =>
-        onPanStart(e)
-      }
-      onMouseUp={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) =>
-        onPanEnd(e)
-      }
+      onMouseDown={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => onPanStart(e)}
+      onMouseUp={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => onPanEnd(e)}
       className={cn(styles.container, {
         [styles.container_withToolbar]: editor.isEditable,
         [styles.container_withLocalSrc]: !!src && !/^https?:\/\/.*/.test(src),
@@ -110,8 +100,8 @@ const ImageView: FC<NodeViewProps> = (props) => {
         <div className={styles.toolbar} contentEditable={false}>
           {!!src ? (
             <>
-              <ButtonGhost
-                LeftIcon={ZoomOutIcon}
+              <Button
+                // LeftIcon={ZoomOutIcon}
                 onClick={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
@@ -119,8 +109,8 @@ const ImageView: FC<NodeViewProps> = (props) => {
                 }}
               />
 
-              <ButtonGhost
-                LeftIcon={ZoomInIcon}
+              <Button
+                // LeftIcon={ZoomInIcon}
                 onClick={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
@@ -131,19 +121,18 @@ const ImageView: FC<NodeViewProps> = (props) => {
           ) : (
             <>
               <input
-                type="file"
-                accept="image/*"
+                type='file'
+                accept='image/*'
                 ref={loadImageInputRef}
-                style={{ display: "none" }}
+                style={{ display: 'none' }}
                 onChange={(e) => {
                   const file = e.target.files?.[0];
                   if (file) updateSrcAttribute(file);
                 }}
               />
-              <ButtonGhost
-                LeftIcon={ImageLoad}
-                onClick={() => loadImageInputRef.current?.click()}
-              />
+              <Button onClick={() => loadImageInputRef.current?.click()}>
+                <ImageLoad />
+              </Button>
             </>
           )}
 
@@ -153,10 +142,10 @@ const ImageView: FC<NodeViewProps> = (props) => {
             minWidth={128}
             offset={[0, 4]}
             openNode={
-              <ButtonGhost
+              <Button
                 title={`${height}px`}
                 active={isHeightOpen}
-                appearance="secondary"
+                appearance='secondary'
                 onClick={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
@@ -165,9 +154,9 @@ const ImageView: FC<NodeViewProps> = (props) => {
             }
           >
             {[320, 512, 768, 1024].map((selH) => (
-              <ButtonGhost
+              <Button
                 key={`height-${selH}`}
-                height={32}
+                // height={32}
                 title={`${selH}px`}
                 onClick={() => {
                   updateAttributes({ ...node.attrs, height: selH });
@@ -177,7 +166,10 @@ const ImageView: FC<NodeViewProps> = (props) => {
             ))}
           </Dropable>
 
-          <ButtonGhost LeftIcon={DeleteIcon} onClick={deleteNode} />
+          <Button
+            // LeftIcon={DeleteIcon}
+            onClick={deleteNode}
+          />
         </div>
       )}
     </NodeViewWrapper>

@@ -62,4 +62,18 @@ interface LaunchColors extends ModedSet {
 
 type LaunchThemeID = 'classic' | 'awesome' | 'wine' | 'violet' | 'radioactive' | 'sunset' | 'mint' | 'yellow';
 
-export type { LaunchColors, LaunchThemeID, ColorSet, ColorKey, ModedSet, ShadowsSet };
+type ComponentSize = 'small' | 'medium' | 'large';
+type ComponentAppearance = 'primary' | 'secondary' | 'secondary-alt';
+type ComponentVariant = 'solid' | 'ghost' | 'outline';
+
+export type {
+  LaunchColors,
+  LaunchThemeID,
+  ColorSet,
+  ColorKey,
+  ModedSet,
+  ShadowsSet,
+  ComponentSize,
+  ComponentAppearance,
+  ComponentVariant,
+};

@@ -9,15 +9,19 @@
     "url": "https://github.com/curillaenator"
   },
   "scripts": {
+    "docs": "npx next dev --turbopack",
     "build": "npx nx run-many -t build",
     "clear": "npx nx reset && bash ./bin/clean-builds.sh",
     "lint": "npx eslint ./packages --fix --quiet"
   },
   "dependencies": {
+    "@k-art/theme": "1.1.0",
+    "classnames": "2.5.1",
     "lodash": "4.17.21",
     "next": "15.3.0",
     "react": ">=18.2.0",
-    "react-dom": ">=18.2.0"
+    "react-dom": ">=18.2.0",
+    "react-icons": "^5.5.0"
   },
   "devDependencies": {
     "@nx/eslint": "20.7.2",

@@ -1,0 +1,129 @@
+@use 'sass:math';
+@use 'sass:map';
+
+$steps: (
+  900: 0,
+  800: 0.125,
+  700: 0.25,
+  600: 0.375,
+  500: 0.5,
+  400: 0.625,
+  300: 0.75,
+  200: 0.875,
+  100: 1,
+);
+
+$SQUARE_SPREAD_REDUCTOR: 0.9;
+$DARKEST_LIGHTNESS: 10%;
+
+@function getNeutrals($hue, $dm: 'false') {
+  $sat: 24%;
+
+  @if $dm == 'true' {
+    $sat: 24%;
+  }
+
+  $neutrals: ();
+
+  @each $stepKey, $stepVal in $steps {
+    $light: calc((math.percentage(math.pow($stepVal, 1.5)) * $SQUARE_SPREAD_REDUCTOR) + $DARKEST_LIGHTNESS);
+
+    $neutralKey: #{'--theme-neutral-' + $stepKey};
+
+    @if $dm == 'true' {
+      $neutralKey: #{'--theme-neutral-' + calc(1000 - $stepKey)};
+    }
+
+    @if $dm == 'false' {
+      $light: calc(100% - $light + $DARKEST_LIGHTNESS);
+      $neutralKey: #{'--theme-neutral-' + calc(1000 - $stepKey)};
+    }
+
+    $neutrals: map.merge(
+      $neutrals,
+      (
+        $neutralKey: hsl($hue, $sat, $light),
+      )
+    );
+  }
+
+  @return $neutrals;
+}
+
+// ----------
+
+$maxLight: 92%;
+$minLight: 20%;
+
+@function getColorset($hsl, $colorname, $dm: 'false') {
+  $hue: map.get($hsl, 'h');
+  $sat: map.get($hsl, 's');
+  $light: map.get($hsl, 'l');
+
+  $lightUp: math.max($light, $maxLight);
+  $lightLow: math.min($light, $minLight);
+
+  $lightmap: (
+    100: $lightUp,
+    200: calc($light + ($lightUp - $light) * math.pow(0.75, 2)),
+    300: calc($light + ($lightUp - $light) * math.pow(0.5, 2)),
+    400: calc($light + ($lightUp - $light) * math.pow(0.25, 2)),
+    500: $light,
+    600: calc($light - ($light - $lightLow) * math.pow(0.25, 2)),
+    700: calc($light - ($light - $lightLow) * math.pow(0.5, 2)),
+    800: calc($light - ($light - $lightLow) * math.pow(0.75, 2)),
+    900: $lightLow,
+  );
+
+  $colorset: ();
+
+  @each $shadeKey, $shadeLight in $lightmap {
+    $colorKey: #{'--theme-' + $colorname + '-' + $shadeKey};
+
+    // reverse keys if darkmode
+    @if $dm == 'true' {
+      // $colorKey: #{'--theme-' + $colorname + '-' + calc(1000 - $shadeKey)};
+    }
+
+    $colorset: map.merge(
+      $colorset,
+      (
+        $colorKey: hsl($hue, $sat, $shadeLight),
+      )
+    );
+  }
+
+  @return $colorset;
+}
+
+// -----------
+
+@function getTheme($colors, $darkmode: 'false') {
+  $themeCssv: ();
+
+  @each $colorName, $hsl in $colors {
+    @if $colorName == 'primary' {
+      $primaryHue: map.get($hsl, 'h');
+
+      @each $neutralColorKey, $neutralColor in getNeutrals($primaryHue, $darkmode) {
+        $themeCssv: map.merge(
+          $themeCssv,
+          (
+            $neutralColorKey: $neutralColor,
+          )
+        );
+      }
+    }
+
+    @each $colorKey, $colorVal in getColorset($hsl, $colorName, $darkmode) {
+      $themeCssv: map.merge(
+        $themeCssv,
+        (
+          $colorKey: $colorVal,
+        )
+      );
+    }
+  }
+
+  @return $themeCssv;
+}

@@ -1646,13 +1646,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@k-art/button@workspace:packages/target/button"
   dependencies:
-    "@k-art/loader": 1.0.0
-    "@k-art/shape": 1.0.5
     "@k-art/types": "*"
-    "@k-art/typography": 1.0.0
   peerDependencies:
+    "@k-art/theme": "*"
     react: "*"
-    styled-components: "*"
   languageName: unknown
   linkType: soft
 
@@ -1719,7 +1716,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@k-art/input@workspace:packages/target/input"
   dependencies:
-    "@k-art/button": 1.0.0
     "@k-art/shape": 1.0.5
     "@k-art/types": "*"
     "@k-art/typography": 1.0.0
@@ -1729,7 +1725,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@k-art/loader@1.0.0, @k-art/loader@workspace:packages/target/loader":
+"@k-art/loader@workspace:packages/target/loader":
   version: 0.0.0-use.local
   resolution: "@k-art/loader@workspace:packages/target/loader"
   dependencies:
@@ -5725,12 +5721,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "k-art-kit@workspace:."
   dependencies:
+    "@k-art/theme": 1.1.0
     "@nx/eslint": 20.7.2
     "@types/lodash": 4.17.16
     "@types/react": ">=18.2.0"
     "@types/react-dom": ">=18.2.0"
     "@typescript-eslint/eslint-plugin": 8.29.1
     "@typescript-eslint/parser": 8.29.1
+    classnames: 2.5.1
     eslint: 9.24.0
     eslint-config-google: 0.14.0
     eslint-plugin-react: 7.37.5
@@ -5744,6 +5742,7 @@ __metadata:
     prettier: 3.5.3
     react: ">=18.2.0"
     react-dom: ">=18.2.0"
+    react-icons: ^5.5.0
     react-router-dom: 7.5.0
     rimraf: 6.0.1
     sass: 1.86.3
@@ -7092,6 +7091,15 @@ __metadata:
   peerDependencies:
     react: ^19.1.0
   checksum: 1d154b6543467095ac269e61ca59db546f34ef76bcdeb90f2dad41d682cd210aae492e70c85010ed5d0a2caea225e9a55139ebc1a615ee85bf197d7f99678cdf
+  languageName: node
+  linkType: hard
+
+"react-icons@npm:^5.5.0":
+  version: 5.5.0
+  resolution: "react-icons@npm:5.5.0"
+  peerDependencies:
+    react: "*"
+  checksum: cbd74f4b7982e6e18d59798a6b578268c8eb0909d78d87bcf9b25f99b3e544fd189a76551cb5e770d17f154a60b668551aee108aaf8471309b23f7af3b2c5b07
   languageName: node
   linkType: hard
 

@@ -17,7 +17,7 @@
   "module": "build/index.js",
   "types": "build/index.d.ts",
   "scripts": {
-    "build": "npx rimraf build && npx tsc -p tsconfig.build.json"
+    "build": "npx rimraf build && npx tsc -p tsconfig.build.json && cp -R ./src/scss ./build/scss"
   },
   "peerDependencies": {
     "react": "*"

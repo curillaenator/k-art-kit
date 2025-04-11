@@ -10,4 +10,12 @@ export {
   getDarkModePrimarySet,
 } from './colors';
 
-export type { LaunchColors, LaunchThemeID, ColorKey, ColorSet } from './interfaces';
+export type {
+  LaunchColors,
+  LaunchThemeID,
+  ColorKey,
+  ColorSet,
+  ComponentSize,
+  ComponentAppearance,
+  ComponentVariant,
+} from './interfaces';

@@ -1,0 +1,89 @@
+@use '~@k-art/theme/build/scss/colors' as colors;
+@use '~@k-art/theme/build/scss/utils' as utils;
+
+@mixin staticColors {
+  --theme-white: hsl(0, 0%, 100%);
+}
+
+@mixin light {
+  --layout-aside-bdc: var(--theme-neutral-300);
+
+  --layout-aside-bgc: var(--theme-neutral-200);
+  --layout-aside-bgc-blend-mode: soft-light;
+
+  @each $cssv, $val in utils.getTheme(colors.$default) {
+    #{'' + $cssv}: #{$val};
+  }
+}
+
+@mixin dark {
+  --layout-aside-bdc: var(--theme-neutral-300);
+
+  --layout-aside-bgc: var(--theme-neutral-300);
+  --layout-aside-bgc-blend-mode: overlay;
+
+  @each $cssv, $val in utils.getTheme(colors.$default, 'true') {
+    #{'' + $cssv}: #{$val};
+  }
+}
+
+.body {
+  --layout-pd: 24px;
+
+  display: flex;
+  align-items: flex-start;
+  max-width: 100vw;
+
+  @include staticColors;
+
+  color-scheme: light;
+  @include theme.light;
+
+  @media (prefers-color-scheme: dark) {
+    color-scheme: dark;
+    @include theme.dark;
+  }
+}
+
+.view {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  height: 100vh;
+  flex: 1 1 auto;
+
+  overflow: hidden;
+
+  .main {
+    padding: var(--layout-pd);
+
+    max-height: calc(100% - 89px);
+    flex: 1 1 auto;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      width: 4px;
+      height: 4px;
+
+      &-thumb {
+        cursor: pointer;
+
+        border-radius: 2px;
+        background-color: var(--theme-neutral-400);
+
+        &:hover {
+          background-color: var(--theme-primary-500);
+        }
+      }
+
+      &-track {
+        border-radius: 2px;
+        background-color: var(--theme-neutral-200);
+        margin: 0 8px;
+      }
+    }
+  }
+}
