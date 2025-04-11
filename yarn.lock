@@ -1460,9 +1460,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@k-art/button@1.0.0, @k-art/button@workspace:packages/button":
+"@k-art/button@1.0.0, @k-art/button@workspace:packages/target/button":
   version: 0.0.0-use.local
-  resolution: "@k-art/button@workspace:packages/button"
+  resolution: "@k-art/button@workspace:packages/target/button"
   dependencies:
     "@k-art/loader": 1.0.0
     "@k-art/shape": 1.0.5
@@ -1474,9 +1474,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@k-art/context-menu@workspace:packages/contextMenu":
+"@k-art/context-menu@workspace:packages/target/contextMenu":
   version: 0.0.0-use.local
-  resolution: "@k-art/context-menu@workspace:packages/contextMenu"
+  resolution: "@k-art/context-menu@workspace:packages/target/contextMenu"
   dependencies:
     "@k-art/button": 1.0.0
     "@k-art/types": "*"
@@ -1486,9 +1486,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@k-art/drawer@workspace:packages/drawer":
+"@k-art/drawer@workspace:packages/target/drawer":
   version: 0.0.0-use.local
-  resolution: "@k-art/drawer@workspace:packages/drawer"
+  resolution: "@k-art/drawer@workspace:packages/target/drawer"
   dependencies:
     "@headlessui/react": 1.7.0
     "@k-art/types": "*"
@@ -1499,9 +1499,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@k-art/dropable@1.0.0, @k-art/dropable@workspace:packages/dropable":
+"@k-art/dropable@1.0.0, @k-art/dropable@workspace:packages/target/dropable":
   version: 0.0.0-use.local
-  resolution: "@k-art/dropable@workspace:packages/dropable"
+  resolution: "@k-art/dropable@workspace:packages/target/dropable"
   dependencies:
     "@k-art/shape": 1.0.5
     "@k-art/types": "*"
@@ -1514,9 +1514,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@k-art/hierarchy@workspace:packages/hierarchy":
+"@k-art/hierarchy@workspace:packages/target/hierarchy":
   version: 0.0.0-use.local
-  resolution: "@k-art/hierarchy@workspace:packages/hierarchy"
+  resolution: "@k-art/hierarchy@workspace:packages/target/hierarchy"
   dependencies:
     "@k-art/button": 1.0.0
     "@k-art/dropable": 1.0.0
@@ -1533,9 +1533,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@k-art/input@1.0.0, @k-art/input@workspace:packages/input":
+"@k-art/input@1.0.0, @k-art/input@workspace:packages/target/input":
   version: 0.0.0-use.local
-  resolution: "@k-art/input@workspace:packages/input"
+  resolution: "@k-art/input@workspace:packages/target/input"
   dependencies:
     "@k-art/button": 1.0.0
     "@k-art/shape": 1.0.5
@@ -1547,9 +1547,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@k-art/loader@1.0.0, @k-art/loader@workspace:packages/loader":
+"@k-art/loader@1.0.0, @k-art/loader@workspace:packages/target/loader":
   version: 0.0.0-use.local
-  resolution: "@k-art/loader@workspace:packages/loader"
+  resolution: "@k-art/loader@workspace:packages/target/loader"
   dependencies:
     "@k-art/types": "*"
   peerDependencies:
@@ -1558,9 +1558,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@k-art/modal@workspace:packages/modal":
+"@k-art/modal@workspace:packages/target/modal":
   version: 0.0.0-use.local
-  resolution: "@k-art/modal@workspace:packages/modal"
+  resolution: "@k-art/modal@workspace:packages/target/modal"
   dependencies:
     "@headlessui/react": 1.7.0
     "@k-art/shape": 1.0.5
@@ -1572,9 +1572,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@k-art/richtext@workspace:packages/richtext":
+"@k-art/richtext@workspace:packages/target/richtext":
   version: 0.0.0-use.local
-  resolution: "@k-art/richtext@workspace:packages/richtext"
+  resolution: "@k-art/richtext@workspace:packages/target/richtext"
   dependencies:
     "@k-art/button": 1.0.0
     "@k-art/dropable": 1.0.0
@@ -1637,9 +1637,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@k-art/shape@1.0.5, @k-art/shape@workspace:packages/shape":
+"@k-art/shape@1.0.5, @k-art/shape@workspace:packages/target/shape":
   version: 0.0.0-use.local
-  resolution: "@k-art/shape@workspace:packages/shape"
+  resolution: "@k-art/shape@workspace:packages/target/shape"
   dependencies:
     "@k-art/types": "*"
   peerDependencies:
@@ -1648,34 +1648,34 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@k-art/theme@1.1.0, @k-art/theme@workspace:packages/theme":
+"@k-art/theme@1.1.0, @k-art/theme@workspace:packages/target/theme":
   version: 0.0.0-use.local
-  resolution: "@k-art/theme@workspace:packages/theme"
+  resolution: "@k-art/theme@workspace:packages/target/theme"
   peerDependencies:
     react: "*"
   languageName: unknown
   linkType: soft
 
-"@k-art/types@*, @k-art/types@workspace:packages/types":
+"@k-art/types@*, @k-art/types@workspace:packages/target/types":
   version: 0.0.0-use.local
-  resolution: "@k-art/types@workspace:packages/types"
+  resolution: "@k-art/types@workspace:packages/target/types"
   dependencies:
     "@k-art/theme": 1.1.0
   languageName: unknown
   linkType: soft
 
-"@k-art/typography@1.0.0, @k-art/typography@workspace:packages/typography":
+"@k-art/typography@1.0.0, @k-art/typography@workspace:packages/target/typography":
   version: 0.0.0-use.local
-  resolution: "@k-art/typography@workspace:packages/typography"
+  resolution: "@k-art/typography@workspace:packages/target/typography"
   peerDependencies:
     react: "*"
     styled-components: "*"
   languageName: unknown
   linkType: soft
 
-"@k-art/utils@1.0.1, @k-art/utils@workspace:packages/utils":
+"@k-art/utils@1.0.1, @k-art/utils@workspace:packages/target/utils":
   version: 0.0.0-use.local
-  resolution: "@k-art/utils@workspace:packages/utils"
+  resolution: "@k-art/utils@workspace:packages/target/utils"
   dependencies:
     bowser: 2.11.0
     qs: 6.9.4
@@ -2736,19 +2736,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/prop-types@npm:*":
-  version: 15.7.14
-  resolution: "@types/prop-types@npm:15.7.14"
-  checksum: d0c5407b9ccc3dd5fae0ccf9b1007e7622ba5e6f1c18399b4f24dff33619d469da4b9fa918a374f19dc0d9fe6a013362aab0b844b606cfc10676efba3f5f736d
-  languageName: node
-  linkType: hard
-
-"@types/react-dom@npm:18.2.0":
-  version: 18.2.0
-  resolution: "@types/react-dom@npm:18.2.0"
-  dependencies:
-    "@types/react": "*"
-  checksum: 9212b3793707a763f10e2c608f6ccb5f729029da6cb84204f333634d3d7baafbc1b20b7faf7cf788a8fd385050a1fb579902031f9462473ef10607116f33f33c
+"@types/react-dom@npm:>=18.2.0":
+  version: 19.1.2
+  resolution: "@types/react-dom@npm:19.1.2"
+  peerDependencies:
+    "@types/react": ^19.0.0
+  checksum: 62a5c398e87b5a42f34497152c67367db70d5e348a05fc4bd78c119fc8d4367c02833c022b2f5dba4df33ae65b7ff76409847722ce6b8f9ea5d31983832688da
   languageName: node
   linkType: hard
 
@@ -2761,30 +2754,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*":
+"@types/react@npm:*, @types/react@npm:>=18.2.0":
   version: 19.1.0
   resolution: "@types/react@npm:19.1.0"
   dependencies:
     csstype: ^3.0.2
   checksum: 7dd7e021897509a68672ab38c268d2f1f519306ade66cc12ffce4dd46e9d2b4224ab49e0b1191b17ac5eceafc65d76e987d6c5b0679224ddbb46f8debce5decc
-  languageName: node
-  linkType: hard
-
-"@types/react@npm:18.2.0":
-  version: 18.2.0
-  resolution: "@types/react@npm:18.2.0"
-  dependencies:
-    "@types/prop-types": "*"
-    "@types/scheduler": "*"
-    csstype: ^3.0.2
-  checksum: db3d92b423150222a666329f7aa3023e3e942044700557b8a7d161530847e621aec9f56c9e7f71761b06dd164c8a7b17ad52355863efe80963dffa5537e8e5fd
-  languageName: node
-  linkType: hard
-
-"@types/scheduler@npm:*":
-  version: 0.26.0
-  resolution: "@types/scheduler@npm:0.26.0"
-  checksum: 295ede5e7f991c7c52f9ed8e58d3076526be9a560e59ae11bf1c1414f9755a17bd750f3bfed4657b118283d1eb082bb27dcbe2eadf335a982b0c3b6a562771c2
   languageName: node
   linkType: hard
 
@@ -5434,8 +5409,8 @@ __metadata:
   dependencies:
     "@nx/eslint": 20.7.2
     "@types/lodash": 4.17.16
-    "@types/react": 18.2.0
-    "@types/react-dom": 18.2.0
+    "@types/react": ">=18.2.0"
+    "@types/react-dom": ">=18.2.0"
     "@typescript-eslint/eslint-plugin": 8.29.1
     "@typescript-eslint/parser": 8.29.1
     eslint: 9.24.0
@@ -5448,8 +5423,8 @@ __metadata:
     lodash: 4.17.21
     nx: 20.7.2
     prettier: 3.5.3
-    react: 18.2.0
-    react-dom: 18.2.0
+    react: ">=18.2.0"
+    react-dom: ">=18.2.0"
     react-router-dom: 7.5.0
     rimraf: 6.0.1
     sass: 1.86.3
@@ -5608,7 +5583,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"loose-envify@npm:^1.1.0, loose-envify@npm:^1.4.0":
+"loose-envify@npm:^1.4.0":
   version: 1.4.0
   resolution: "loose-envify@npm:1.4.0"
   dependencies:
@@ -6718,15 +6693,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:18.2.0":
-  version: 18.2.0
-  resolution: "react-dom@npm:18.2.0"
+"react-dom@npm:>=18.2.0":
+  version: 19.1.0
+  resolution: "react-dom@npm:19.1.0"
   dependencies:
-    loose-envify: ^1.1.0
-    scheduler: ^0.23.0
+    scheduler: ^0.26.0
   peerDependencies:
-    react: ^18.2.0
-  checksum: 7d323310bea3a91be2965f9468d552f201b1c27891e45ddc2d6b8f717680c95a75ae0bc1e3f5cf41472446a2589a75aed4483aee8169287909fcd59ad149e8cc
+    react: ^19.1.0
+  checksum: 1d154b6543467095ac269e61ca59db546f34ef76bcdeb90f2dad41d682cd210aae492e70c85010ed5d0a2caea225e9a55139ebc1a615ee85bf197d7f99678cdf
   languageName: node
   linkType: hard
 
@@ -6801,12 +6775,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:18.2.0":
-  version: 18.2.0
-  resolution: "react@npm:18.2.0"
-  dependencies:
-    loose-envify: ^1.1.0
-  checksum: 88e38092da8839b830cda6feef2e8505dec8ace60579e46aa5490fc3dc9bba0bd50336507dc166f43e3afc1c42939c09fe33b25fae889d6f402721dcd78fca1b
+"react@npm:>=18.2.0":
+  version: 19.1.0
+  resolution: "react@npm:19.1.0"
+  checksum: c0905f8cfb878b0543a5522727e5ed79c67c8111dc16ceee135b7fe19dce77b2c1c19293513061a8934e721292bfc1517e0487e262d1906f306bdf95fa54d02f
   languageName: node
   linkType: hard
 
@@ -7129,12 +7101,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"scheduler@npm:^0.23.0":
-  version: 0.23.2
-  resolution: "scheduler@npm:0.23.2"
-  dependencies:
-    loose-envify: ^1.1.0
-  checksum: 3e82d1f419e240ef6219d794ff29c7ee415fbdc19e038f680a10c067108e06284f1847450a210b29bbaf97b9d8a97ced5f624c31c681248ac84c80d56ad5a2c4
+"scheduler@npm:^0.26.0":
+  version: 0.26.0
+  resolution: "scheduler@npm:0.26.0"
+  checksum: c63a9f1c0e5089b537231cff6c11f75455b5c8625ae09535c1d7cd0a1b0c77ceecdd9f1074e5e063da5d8dc11e73e8033dcac3361791088be08a6e60c0283ed9
   languageName: node
   linkType: hard
 

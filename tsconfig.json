@@ -30,5 +30,5 @@
     "types": ["react"]
   },
 
-  "exclude": ["./packages/**/build/*", "./packages/types/*", "./*.config.mjs", "./*.config.js"]
+  "exclude": ["./packages/**/build/*", "./packages/target/types/*", "./*.config.mjs", "./*.config.js"]
 }
