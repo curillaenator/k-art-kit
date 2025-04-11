@@ -1,4 +1,3 @@
-/** eslint-disable @typescript-eslint/no-unused-vars */
 import React, { FC } from 'react';
 import { useCurrentEditor } from '@tiptap/react';
 import { toPairs } from 'lodash';
