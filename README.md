@@ -1,6 +1,4 @@
-# @k-art-kit
-
-Custom ui kit + NextJS Docs Custom App
+# @k-art UI Kit + NextJS Docs App
 
 ## local run:
 
