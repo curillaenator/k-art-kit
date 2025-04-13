@@ -15,11 +15,14 @@ import { DocumentLink } from '../DocumentLink';
 // import { Actions } from '../Actions';
 // import { useDragNDrop } from './hooks/useDragNDrop';
 
+//@ts-ignore
 import CaretRightIcon from '../../assets/carretRight.svg';
+//@ts-ignore
 import DotSmallIcon from '../../assets/dot.svg';
 
 import { getHeight } from '../../utils/getHeight';
 
+//@ts-ignore
 import styles from './styles.module.scss';
 
 interface FoldableProps {

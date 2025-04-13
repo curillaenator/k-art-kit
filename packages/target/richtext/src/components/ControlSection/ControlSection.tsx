@@ -4,7 +4,7 @@ import { useCurrentEditor } from '@tiptap/react';
 import { ToolbarButton } from '../ToolbarButton';
 
 import type { ToolbarItemProps } from '../Toolbar';
-
+//@ts-ignore
 import styles from './styles.module.scss';
 
 interface ControlSectionProps {

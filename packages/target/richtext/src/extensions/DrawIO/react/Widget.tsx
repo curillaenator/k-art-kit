@@ -9,7 +9,9 @@ import { $drawioContext as Context } from './context';
 import { WidgetDrawioIcon } from './icons/WidgetDrawioIcon';
 
 import type { UiWidgetProps } from './interfaces';
+//@ts-ignore
 import styles from './widget.module.scss';
+//@ts-ignore
 import editorCssv from '../../../styles.module.scss';
 
 const UIWidget: FC<UiWidgetProps> = (props) => {

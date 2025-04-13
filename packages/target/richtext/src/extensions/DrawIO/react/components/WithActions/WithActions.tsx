@@ -10,7 +10,7 @@ import { useDrawioContext } from '../../context';
 
 import type { WithActionsProps } from './interfaces';
 import type { DrawIoAttributes } from '../../interfaces';
-
+//@ts-ignore
 import styles from './withactions.module.scss';
 
 const handleAttrs = (nodeAttrs: DrawIoAttributes) =>

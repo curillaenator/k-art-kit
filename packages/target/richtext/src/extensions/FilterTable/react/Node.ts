@@ -1,6 +1,8 @@
 import { ReactNodeViewRenderer, mergeAttributes } from '@tiptap/react';
 import { ReactNodeViewWidget } from './Widget';
 import { CoreTable } from '../core';
+
+//@ts-ignore
 import htmlStyles from './html.module.scss';
 
 const FilterTable = CoreTable.extend({

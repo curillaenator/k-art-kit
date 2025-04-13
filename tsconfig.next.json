@@ -23,5 +23,5 @@
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules", "./packages/**/build/*", "./packages/target/types/*", "./*.config.mjs", "./*.config.js"]
+  "exclude": ["node_modules", "./packages/**/build/*", "./*.config.mjs", "./*.config.js"]
 }

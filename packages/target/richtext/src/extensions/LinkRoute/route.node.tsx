@@ -1,19 +1,15 @@
-import React from "react";
-import { Node, InputRule } from "@tiptap/core";
-import {
-  ReactNodeViewRenderer,
-  useReactNodeView,
-  mergeAttributes,
-  NodeViewWrapper,
-} from "@tiptap/react";
-import { Corners, BDRS } from "@k-art/shape";
+import React from 'react';
+import { Node, InputRule } from '@tiptap/core';
+import { ReactNodeViewRenderer, useReactNodeView, mergeAttributes, NodeViewWrapper } from '@tiptap/react';
+import { Corners, BDRS } from '@k-art/shape';
 
-import styles from "./route.module.scss";
+//@ts-ignore
+import styles from './route.module.scss';
 
-import type { LinkRouteOptions, LinkRouteAttributes } from "./interfaces";
-import DocumentIcon from "./document.svg";
+import type { LinkRouteOptions, LinkRouteAttributes } from './interfaces';
+import DocumentIcon from './document.svg';
 
-const LINK_ROUTE_EXT_NAME = "routeLink";
+const LINK_ROUTE_EXT_NAME = 'routeLink';
 const INPUT_RE = /!to\[([^\]]+)\]\[([^\]]+)\]\s$/; // seacrhes for `[title][to] ` with \s in the end
 
 const LinkRoute = Node.create<LinkRouteOptions>({
@@ -25,9 +21,9 @@ const LinkRoute = Node.create<LinkRouteOptions>({
 
   exitable: true,
 
-  group: "block",
+  group: 'block',
 
-  content: "inline*",
+  content: 'inline*',
 
   addOptions() {
     return {
@@ -38,13 +34,13 @@ const LinkRoute = Node.create<LinkRouteOptions>({
   addAttributes() {
     return {
       to: {
-        default: "/",
+        default: '/',
       },
     };
   },
 
   renderText({ node }) {
-    return `[${node.textContent}][${node.attrs["to"]}]`;
+    return `[${node.textContent}][${node.attrs['to']}]`;
   },
 
   parseHTML() {
@@ -53,11 +49,11 @@ const LinkRoute = Node.create<LinkRouteOptions>({
 
   renderHTML({ node }) {
     return [
-      "a",
+      'a',
       mergeAttributes({
-        href: "#",
-        to: node.attrs["to"],
-        "data-extension": this.name,
+        href: '#',
+        to: node.attrs['to'],
+        'data-extension': this.name,
       }),
       0,
     ];
@@ -77,10 +73,7 @@ const LinkRoute = Node.create<LinkRouteOptions>({
 
           commands.insertContentAt(
             range.from,
-            edtr.schema.nodes[LINK_ROUTE_EXT_NAME].create(
-              { to },
-              edtr.schema.text(text)
-            )
+            edtr.schema.nodes[LINK_ROUTE_EXT_NAME].create({ to }, edtr.schema.text(text)),
           );
         },
       }),
@@ -96,7 +89,7 @@ const LinkRoute = Node.create<LinkRouteOptions>({
 
         return (
           <NodeViewWrapper
-            as="a"
+            as='a'
             ref={nodeViewContentRef}
             className={styles.route}
             onClick={(e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
@@ -110,7 +103,7 @@ const LinkRoute = Node.create<LinkRouteOptions>({
           </NodeViewWrapper>
         );
       },
-      { contentDOMElementTag: "span" }
+      { contentDOMElementTag: 'span' },
     );
   },
 });

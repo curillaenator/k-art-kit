@@ -8,6 +8,7 @@ import { getHtmlRenderMessage } from './utils';
 
 import type { TocNodeConfig } from './interfaces';
 
+//@ts-ignore
 import htmlStyles from './html.module.scss';
 
 const TocNode = Node.create<TocNodeConfig>({

@@ -16,6 +16,8 @@ import {
 } from './icons';
 
 import type { ImageAttributes } from './interfaces';
+
+//@ts-ignore
 import styles from './image.module.scss';
 
 /**

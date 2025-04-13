@@ -4,6 +4,7 @@ import cn from 'classnames';
 import { INFO_ICONS } from './icons';
 
 import type { InfoAttributes } from './interfaces';
+//@ts-ignore
 import styles from './info.module.scss';
 
 const INFO_EXTENSION = 'info';

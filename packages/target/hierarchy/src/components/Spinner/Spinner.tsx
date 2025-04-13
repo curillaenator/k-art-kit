@@ -1,4 +1,6 @@
 import React, { FC } from 'react';
+
+//@ts-ignore
 import styles from './icon.module.scss';
 
 export const Spinner: FC = () => (

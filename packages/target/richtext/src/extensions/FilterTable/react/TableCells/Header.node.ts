@@ -6,7 +6,7 @@ import { CoreTableHeader } from '../../core/TableHeader';
 import type { TableCellAttributes, TableCellOnResizeFn } from '../../core/interfaces';
 
 import { JSIcon } from './icons';
-
+//@ts-ignore
 import styles from './cell.module.scss';
 
 const TableHeader = CoreTableHeader.extend<TableHeaderOptions>({

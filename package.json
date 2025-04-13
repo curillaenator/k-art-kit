@@ -16,12 +16,14 @@
   },
   "dependencies": {
     "@k-art/button": "1.0.0",
+    "@k-art/input": "1.0.0",
     "classnames": "2.5.1",
     "lodash": "4.17.21",
     "next": "15.3.0",
+    "next-auth": "4.24.11",
     "react": ">=18.2.0",
     "react-dom": ">=18.2.0",
-    "react-icons": "^5.5.0"
+    "react-icons": "5.5.0"
   },
   "devDependencies": {
     "@nx/eslint": "20.7.2",

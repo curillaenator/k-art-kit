@@ -1,87 +1,33 @@
-import React, { forwardRef, useState, useRef, useImperativeHandle } from 'react';
+import React, { forwardRef, useRef, useImperativeHandle } from 'react';
+import cn from 'classnames';
 
-import { Typography } from '@k-art/typography';
+import type { InputProps } from './interfaces';
 
-import { InputStyled } from './input.styled';
-import { InputProps } from './interfaces';
+//@ts-ignore
+import styles from './input.module.scss';
 
 const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
-  const {
-    state = 'normal',
-    type = 'text',
-    icon: Icon,
-    name,
-    description,
-    value,
-    limitSymbols,
-    onChange,
-    onFocusOut,
-    ...rest
-  } = props;
+  const { leftElement, rightElement, disabled, ...rest } = props;
 
-  const inputRef = useRef<HTMLInputElement | null>(null);
-  const inputButtonRef = useRef<HTMLButtonElement | null>(null);
+  const internalRef = useRef<HTMLInputElement | null>(null);
 
-  //@ts-expect-error
-  useImperativeHandle(ref, () => (ref = inputRef.current));
-
-  const [isFocused, setIsFocused] = useState(false);
-
-  const handleFocus = () => {
-    !!inputRef.current && inputRef.current.focus();
-    setIsFocused(true);
-  };
-
-  const handleBlur = () => {
-    inputRef.current?.blur();
-    onFocusOut?.();
-    setIsFocused(false);
-  };
+  useImperativeHandle(ref, () => internalRef.current!, []);
 
   return (
-    <InputStyled
-      data-input-container
-      state={state}
-      isIcon={!!Icon}
-      tabIndex={0}
-      isFocused={isFocused}
-      hasValue={!!value.length}
-      buttonWidth={inputButtonRef.current?.clientWidth || 0}
-      onFocus={handleFocus}
-      onBlur={handleBlur}
+    <div
+      className={cn(styles.inputWrapper, {
+        [styles.inputWrapper_db]: !!disabled,
+      })}
+      onClick={() => {
+        internalRef.current?.focus();
+      }}
     >
-      <div className='input'>
-        {!!Icon && <Icon />}
+      {leftElement}
 
-        <input
-          {...rest}
-          ref={inputRef}
-          className='input-input'
-          type={type}
-          name={name}
-          autoComplete='off'
-          value={value}
-          onChange={(e) => {
-            if (e.target.value?.length >= (limitSymbols || Infinity)) return;
-            onChange?.(e);
-          }}
-        />
-      </div>
+      <input {...rest} ref={internalRef} disabled={disabled} />
 
-      {(description || limitSymbols) && (
-        <div className='subinput'>
-          <Typography type='TextRegular11' className='subinput-text'>
-            {description || ''}
-          </Typography>
-
-          {limitSymbols && (
-            <Typography type='TextRegular11' className='subinput-text'>
-              {`${value.length}/${limitSymbols}`}
-            </Typography>
-          )}
-        </div>
-      )}
-    </InputStyled>
+      {rightElement}
+    </div>
   );
 });
 

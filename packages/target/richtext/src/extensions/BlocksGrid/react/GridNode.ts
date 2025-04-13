@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import { BlocksGrid as BlocksGridCore, EXTENSION_NAME } from '../core';
 
 // TODO: add global classses in options to be able to render pure html with them
+//@ts-ignore
 import gridStyles from './grid.module.scss';
 
 const BlocksGrid = BlocksGridCore.extend({

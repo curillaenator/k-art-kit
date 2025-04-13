@@ -10,6 +10,7 @@ import { Toolbar } from './Toolbar';
 import { TABLE_WIDTH_CSSV } from './constants';
 import type { UiWidgetProps } from './interfaces';
 
+//@ts-ignore
 import styles from './widget.module.scss';
 
 export const ReactNodeViewWidget: FC<UiWidgetProps> = (props) => {

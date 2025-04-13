@@ -19,6 +19,8 @@ import {
 
 import { TOC_MAX_TITLE_LENGTH } from './constants';
 import type { TocReactNodeViewProps, TocNodeAttributes, TocNodeItem } from './interfaces';
+
+//@ts-ignore
 import styles from './toc.module.scss';
 
 const TocNodeWidget: FC<TocReactNodeViewProps> = (props) => {

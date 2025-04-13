@@ -1,21 +1,17 @@
-import React, { FC } from "react";
+import React, { FC } from 'react';
 // import { Link } from 'react-router-dom';
-import cn from "classnames";
+import cn from 'classnames';
 
 // import DragIcon from '@sbt_swtr/kit-tracker.icon/dist/assets/solid/DragIcon';
-import {
-  Dropable,
-  useControledDropdown,
-  useAnimation,
-  useCombineControledAnimated,
-} from "@k-art/dropable";
+import { Dropable, useControledDropdown, useAnimation, useCombineControledAnimated } from '@k-art/dropable';
 // import { ButtonGhost } from '@k-art/button';
 
 // import { useHierarchyContext } from '../../context';
 // import { getPathKey } from '../../utils/getPathKey';
 
-import type { ActionsProps } from "./interfaces";
-import styles from "./action.module.scss";
+import type { ActionsProps } from './interfaces';
+//@ts-ignore
+import styles from './action.module.scss';
 
 export const Actions: FC<ActionsProps> = (props) => {
   const { setActionsOpened, setHovered } = props;
@@ -53,13 +49,13 @@ export const Actions: FC<ActionsProps> = (props) => {
     <Dropable
       {...combinedControled}
       offset={[0, 8]}
-      placement="right-start"
+      placement='right-start'
       // appendToId={uniqueId}
       className={styles.actions}
       minWidth={64}
       openNode={
         <button
-          type="button"
+          type='button'
           className={cn(styles.trigger, {
             [styles.trigger_active]: isOpen,
           })}

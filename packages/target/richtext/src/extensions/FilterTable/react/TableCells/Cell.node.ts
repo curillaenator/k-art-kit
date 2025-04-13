@@ -6,7 +6,7 @@ import { CoreTableCell } from '../../core/TableCell';
 import type { TableCellAttributes, TableCellOnResizeFn } from '../../core/interfaces';
 
 import { JSIcon } from './icons';
-
+//@ts-ignore
 import styles from './cell.module.scss';
 
 const TableCell = CoreTableCell.extend<TableCellOptions>({

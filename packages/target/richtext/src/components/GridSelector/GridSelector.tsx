@@ -1,20 +1,21 @@
-import React, { FC, useCallback } from "react";
-import { useCurrentEditor } from "@tiptap/react";
+import React, { FC, useCallback } from 'react';
+import { useCurrentEditor } from '@tiptap/react';
 
-import { Dropable } from "@k-art/dropable";
-import { ToolbarButton } from "../ToolbarButton";
+import { Dropable } from '@k-art/dropable';
+import { ToolbarButton } from '../ToolbarButton';
 
-import { EXTENSION_NAME as BLOCKS_GRID_NODE_NAME } from "../../extensions/BlocksGrid/core/constants";
+import { EXTENSION_NAME as BLOCKS_GRID_NODE_NAME } from '../../extensions/BlocksGrid/core/constants';
 
-import { getInsertBlocksGridVariants, checkIsCarretInside } from "./utils";
-import { useDropdown } from "./hooks/useDropdown";
+import { getInsertBlocksGridVariants, checkIsCarretInside } from './utils';
+import { useDropdown } from './hooks/useDropdown';
 
-import TrashIcon from "./svg/trash.svg";
-import BlocksgridIcon from "./svg/addBlocksgrid.svg";
+import TrashIcon from './svg/trash.svg';
+import BlocksgridIcon from './svg/addBlocksgrid.svg';
 
-import { DEFAULT_CAPTIONS } from "../constants";
-import type { GridSelectorProps } from "./interfaces";
-import styles from "./gridselector.module.scss";
+import { DEFAULT_CAPTIONS } from '../constants';
+import type { GridSelectorProps } from './interfaces';
+//@ts-ignore
+import styles from './gridselector.module.scss';
 
 export const GridSelector: FC<GridSelectorProps> = (props) => {
   const { editor } = useCurrentEditor();
@@ -28,7 +29,7 @@ export const GridSelector: FC<GridSelectorProps> = (props) => {
     editorContentRef,
 
     //guard
-    onSelectionUpdateHandlers,
+    onSelectionUpdateHandlers, // eslint-disable-line @typescript-eslint/no-unused-vars
 
     ...rest
   } = useDropdown(props);
@@ -37,11 +38,9 @@ export const GridSelector: FC<GridSelectorProps> = (props) => {
     if (!editor || !editorContentRef?.current) return;
     const targetNode = editor.state.selection.$from.node(1);
 
-    if (targetNode?.type?.name === "blocksGrid") {
+    if (targetNode?.type?.name === 'blocksGrid') {
       [0, 1, 2].forEach((num) =>
-        editorContentRef.current?.style.removeProperty(
-          `--blocksgrid-${targetNode.attrs["blocksGridId"]}-${num}-bdc`
-        )
+        editorContentRef.current?.style.removeProperty(`--blocksgrid-${targetNode.attrs['blocksGridId']}-${num}-bdc`),
       );
     }
   }, [editor, editorContentRef]);
@@ -50,12 +49,12 @@ export const GridSelector: FC<GridSelectorProps> = (props) => {
     if (!editor || !editorContentRef?.current) return;
     const targetNode = editor.state.selection.$from.node(1);
 
-    if (targetNode?.type?.name === "blocksGrid") {
+    if (targetNode?.type?.name === 'blocksGrid') {
       [0, 1, 2].forEach((num) =>
         editorContentRef.current?.style.setProperty(
-          `--blocksgrid-${targetNode.attrs["blocksGridId"]}-${num}-bdc`,
-          "var(--theme-backgrounds-danger)"
-        )
+          `--blocksgrid-${targetNode.attrs['blocksGridId']}-${num}-bdc`,
+          'var(--theme-backgrounds-danger)',
+        ),
       );
     }
   }, [editor, editorContentRef]);
@@ -63,10 +62,7 @@ export const GridSelector: FC<GridSelectorProps> = (props) => {
   if (!editor) return null;
 
   // not hooks
-  const isCarretInsideAvoidedNodes = checkIsCarretInside(editor, [
-    BLOCKS_GRID_NODE_NAME,
-    "table",
-  ]);
+  const isCarretInsideAvoidedNodes = checkIsCarretInside(editor, [BLOCKS_GRID_NODE_NAME, 'table']);
   const isBlocksGridDisabled = isCarretInsideAvoidedNodes || disabled;
 
   return (
@@ -88,24 +84,22 @@ export const GridSelector: FC<GridSelectorProps> = (props) => {
       }
     >
       <div className={styles.inserts}>
-        {getInsertBlocksGridVariants(editor.commands).map(
-          ({ id, icon: Icon, onClick }) => (
-            <ToolbarButton
-              key={id}
-              disabled={isBlocksGridDisabled}
-              onClick={(e) => {
-                onClick?.(e);
-                closeDropdown?.();
-              }}
-            >
-              <Icon />
-            </ToolbarButton>
-          )
-        )}
+        {getInsertBlocksGridVariants(editor.commands).map(({ id, icon: Icon, onClick }) => (
+          <ToolbarButton
+            key={id}
+            disabled={isBlocksGridDisabled}
+            onClick={(e) => {
+              onClick?.(e);
+              closeDropdown?.();
+            }}
+          >
+            <Icon />
+          </ToolbarButton>
+        ))}
       </div>
 
       <ToolbarButton
-        disabled={!checkIsCarretInside(editor, ["blocksGrid"])}
+        disabled={!checkIsCarretInside(editor, ['blocksGrid'])}
         onMouseEnter={highlightFocusedBlocksGridWithCssv}
         onMouseLeave={clearBlocksGridCssv}
         onClick={() => {

@@ -1,3 +1,4 @@
+//@ts-ignore
 import styles from '../widget.module.scss';
 
 const resolveIFrameDomain = (link: string) => {

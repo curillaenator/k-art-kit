@@ -12,8 +12,8 @@ import {
   TbLayoutSidebarRightExpand,
   TbInfoHexagon,
   TbLayout,
-  // TbLogin,
-  // TbLogout,
+  TbLogin,
+  TbLogout,
   TbCat,
 } from 'react-icons/tb';
 
@@ -65,38 +65,34 @@ const Aside: FC = () => {
             fullwidth
             active={isActive(href, pathname)}
             appearance='secondary'
-            children={
-              <>
-                <Icon /> {title}
-              </>
-            }
-          />
+          >
+            <Icon /> {title}
+          </Button>
         ))}
       </nav>
 
-      {/* <footer>
+      <footer>
         <Button
           component={Link}
           // href={session?.data ? '#' : '/api/auth/signin'}
-          href={session?.data ? '#' : '/signin'}
+          href={false ? '#' : '/signin'}
           fullwidth
-          appearance={buttonAppearance}
-          children={
-            session?.data ? (
-              <>
-                <TbLogout /> {'Sign out'}
-              </>
-            ) : (
-              <>
-                <TbLogin /> {'Sign in'}
-              </>
-            )
-          }
-          onClick={() => {
-            if (session?.data) signOut({ callbackUrl: '/' });
-          }}
-        />
-      </footer> */}
+          appearance='secondary'
+          // onClick={() => {
+          //   if (session?.data) signOut({ callbackUrl: '/' });
+          // }}
+        >
+          {false ? (
+            <>
+              <TbLogout /> {'Sign out'}
+            </>
+          ) : (
+            <>
+              <TbLogin /> {'Sign in'}
+            </>
+          )}
+        </Button>
+      </footer>
     </aside>
   );
 };

@@ -1,15 +1,16 @@
-import React, { FC, memo, useCallback, useEffect, useRef } from "react";
-import { useCurrentEditor } from "@tiptap/react";
-import cn from "classnames";
-import { v4 as getKey } from "uuid";
+import React, { FC, memo, useCallback, useEffect, useRef } from 'react';
+import { useCurrentEditor } from '@tiptap/react';
+import cn from 'classnames';
+import { v4 as getKey } from 'uuid';
 
-import { Corners, BDRS } from "@k-art/shape";
+import { Corners, BDRS } from '@k-art/shape';
 
-import type { ToolbarProps } from "./interfaces";
+import type { ToolbarProps } from './interfaces';
 // import { useToolbarObserver } from './hooks/useToolbarObserver';
 
-import { DEFAULT_STRUCT } from "./constants";
-import styles from "./Toolbar.module.scss";
+import { DEFAULT_STRUCT } from './constants';
+//@ts-ignore
+import styles from './Toolbar.module.scss';
 
 const Toolbar: FC<ToolbarProps> = memo((props) => {
   const { disabled, editorContentRef } = props;
@@ -31,27 +32,23 @@ const Toolbar: FC<ToolbarProps> = memo((props) => {
 
   useEffect(() => {
     if (editor) {
-      editor
-        .on("selectionUpdate", onSelectionUpdate)
-        .on("update", onSelectionUpdate);
+      editor.on('selectionUpdate', onSelectionUpdate).on('update', onSelectionUpdate);
       onSelectionUpdate();
     }
 
     return () => {
-      editor
-        ?.off("selectionUpdate", onSelectionUpdate)
-        .off("update", onSelectionUpdate);
+      editor?.off('selectionUpdate', onSelectionUpdate).off('update', onSelectionUpdate);
     };
   }, [editor, onSelectionUpdate]);
 
   return (
     <div
       // ref={containerRef}
-      id={"rich-text-toolbar"}
+      id={'rich-text-toolbar'}
       className={cn(
         styles.toolbar,
         // styles[`_${composition}`],
-        styles[`_full`]
+        styles[`_full`],
       )}
     >
       <Corners borderRadius={BDRS[16]} stroke={1} />
@@ -61,7 +58,7 @@ const Toolbar: FC<ToolbarProps> = memo((props) => {
           styles.toolbarBlock,
           styles.toolbarBlock_left,
           // styles[`_${composition}`],
-          styles[`_full`]
+          styles[`_full`],
         )}
       >
         {left.map((Component) => (
@@ -74,13 +71,7 @@ const Toolbar: FC<ToolbarProps> = memo((props) => {
         ))}
       </div>
 
-      <div
-        className={cn(
-          styles.toolbarBlock,
-          styles.toolbarBlock_right,
-          styles[`_full`]
-        )}
-      >
+      <div className={cn(styles.toolbarBlock, styles.toolbarBlock_right, styles[`_full`])}>
         {right.map((Component) => {
           return (
             <Component

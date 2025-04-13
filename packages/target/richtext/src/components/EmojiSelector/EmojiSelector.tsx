@@ -11,6 +11,7 @@ import { useDropdown } from './hooks/useDropdown';
 import { namesToEmoji } from './emojis';
 
 import type { EmojiSelectorProps } from './interfaces';
+//@ts-ignore
 import styles from './emojiselector.module.scss';
 
 export const EmojiSelector: FC<EmojiSelectorProps> = (props) => {

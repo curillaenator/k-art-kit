@@ -4,6 +4,7 @@ import toPairs from 'lodash/toPairs.js';
 import { BlocksGridColumn as BlocksGridColumnCore, COLUMN_NODE_NAME, getBlocksGridNodeByPos } from '../core';
 
 import { ColumnToolbar } from './Toolbar';
+//@ts-ignore
 import columnStyles from './column.module.scss';
 
 const BlocksGridColumn = BlocksGridColumnCore.extend({

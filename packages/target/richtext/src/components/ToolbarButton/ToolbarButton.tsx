@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import cns from 'classnames';
 
 import type { ToolbarButtonProps } from './interfaces';
+//@ts-ignore
 import styles from './ToolbarButton.module.scss';
 
 export const ToolbarButton: FC<ToolbarButtonProps> = (props) => {

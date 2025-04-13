@@ -6,6 +6,7 @@ import { getBlocksGridNodeByPos } from '../core';
 import { ToolbarIcons } from './icons';
 
 import { EXTENSION_NAME, COLUMN_NODE_NAME, ALLOWED_COLUMNS_IDXS } from '../core/constants';
+//@ts-ignore
 import styles from './toolbar.module.scss';
 
 interface ColumnToolbarButtonProps {

@@ -6,6 +6,7 @@ import cn from 'classnames';
 import { useHierarchyContext } from '../../context';
 
 import type { HierarchyItem } from '../../interfaces';
+//@ts-ignore
 import styles from './DocumentLink.module.scss';
 
 interface DocumentLinkProps {

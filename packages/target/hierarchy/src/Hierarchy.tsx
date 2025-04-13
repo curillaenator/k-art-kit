@@ -7,6 +7,8 @@ import { HierarchyContextProvider } from './context';
 import { Foldable } from './components/Foldable';
 
 import type { HierarchyProps } from './interfaces';
+
+//@ts-ignore
 import styles from './styles.module.scss';
 
 export const Hierarchy: FC<HierarchyProps> = (props) => {

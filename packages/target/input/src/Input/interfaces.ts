@@ -1,26 +1,8 @@
-import type { FC, HTMLAttributes } from 'react';
+import type { InputHTMLAttributes, ReactNode } from 'react';
 
-type IInputState = 'normal' | 'success' | 'error';
-
-interface InputProps extends Omit<HTMLAttributes<HTMLInputElement>, 'onChage'> {
-  state?: IInputState;
-  icon?: FC<React.SVGAttributes<SVGElement>>;
-  type?: 'text' | 'email' | 'password' | 'url';
-  name: string;
-  description?: string;
-  value: string;
-  limitSymbols?: number;
-  disabled?: boolean;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onFocusOut?: () => void;
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+  leftElement?: ReactNode;
+  rightElement?: ReactNode;
 }
 
-interface InputStyledProps {
-  state: IInputState;
-  isIcon: boolean;
-  isFocused: boolean;
-  buttonWidth: number;
-  hasValue: boolean;
-}
-
-export type { InputProps, InputStyledProps };
+export type { InputProps };

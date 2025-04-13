@@ -34,6 +34,7 @@ const randomBytes = new Uint8Array(16);
 function getRandomValues() {
   if (
     !getRandomValuesUnsafe &&
+    //@ts-ignore
     ((getRandomValuesUnsafe =
       typeof crypto !== 'undefined' && crypto.getRandomValues && crypto.getRandomValues.bind(crypto)),
     !getRandomValuesUnsafe)
@@ -45,6 +46,7 @@ function getRandomValues() {
 
 const randomUUID = typeof crypto !== 'undefined' && crypto.randomUUID && crypto.randomUUID.bind(crypto);
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function generateUUID(options?: any, rng?: any) {
   if (randomUUID && !rng && !options) return randomUUID();
   options = options || {};

@@ -1,0 +1,38 @@
+.wrapper {
+  width: 384px;
+  height: 100%;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.divider {
+  position: relative;
+  color: var(--theme-neutral-500);
+
+  &::after,
+  &::before {
+    content: '';
+    position: absolute;
+
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 96px;
+    height: 1px;
+    background-color: var(--theme-neutral-500);
+  }
+
+  &::after {
+    left: -104px;
+  }
+
+  &::before {
+    right: -104px;
+  }
+}

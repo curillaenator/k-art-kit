@@ -1,7 +1,7 @@
 import { Decoration, DecorationSet } from 'prosemirror-view';
 import { Extension } from '@tiptap/core';
 import { Plugin } from 'prosemirror-state';
-
+//@ts-ignore
 import styles from './draggable.module.scss';
 
 export const Draggable = Extension.create({

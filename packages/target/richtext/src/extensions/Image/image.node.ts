@@ -5,6 +5,7 @@ import { ImageView } from './Image.view';
 
 import { ImageConfig, ImageAttributes } from './interfaces';
 
+//@ts-ignore
 import styles from './image.module.scss';
 
 const IMAGE_EXTENSION = 'image';

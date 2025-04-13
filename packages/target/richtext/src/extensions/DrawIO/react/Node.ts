@@ -6,6 +6,7 @@ import { UIWidget } from './Widget';
 import type { DrawIoConfig, DrawIoStorage, DrawIoAttributes } from './interfaces';
 
 import { DRAWIO_EXTENSION_NAME } from './constants';
+//@ts-ignore
 import styles from './node.module.scss';
 
 const NULL_ATTRS: DrawIoAttributes = {

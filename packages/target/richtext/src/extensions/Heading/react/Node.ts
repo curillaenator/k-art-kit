@@ -8,6 +8,8 @@ import {
 } from './utils';
 
 import type { ReactHeadingConfig, HeadingObsRef } from './interfaces';
+
+//@ts-ignore
 import styles from './headings.module.scss';
 
 // const onItemClick = (node: PMNode) => {

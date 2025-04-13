@@ -2,6 +2,8 @@ import { ReactNodeViewRenderer } from '@tiptap/react';
 
 import { TaskItemView } from './TaskItemView';
 import { TaskItem as CoreTaskItem } from '../core/Node';
+
+//@ts-ignore
 import styles from './styles.module.scss';
 
 const TaskItem = CoreTaskItem.extend({

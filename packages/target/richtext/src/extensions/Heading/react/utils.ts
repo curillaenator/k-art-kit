@@ -1,4 +1,6 @@
 import { toPairs } from 'lodash';
+
+//@ts-ignore
 import styles from './headings.module.scss';
 
 import { CYRILLIC_TO_LATIN } from './translitMaps';
