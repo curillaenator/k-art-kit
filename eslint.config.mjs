@@ -73,7 +73,8 @@ export default [
       '**/build/**',
       '**/*.config.mjs',
       '**/*.config.js',
-      './packages/target/types/*',
+      '**/*.d.ts',
+      './packages/target/types/**/*.ts',
     ],
   },
 ];

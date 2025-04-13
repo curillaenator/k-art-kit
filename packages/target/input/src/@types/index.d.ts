@@ -1,1 +1,1 @@
-import "@k-art/types";
+import '@k-art/types';

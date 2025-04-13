@@ -12,11 +12,10 @@
   "publishConfig": {
     "access": "public"
   },
-  "main": "build/index.js",
-  "module": "build/index.js",
-  "types": "build/index.d.ts",
+  "main": "src/index",
+  "types": "src/index.d.ts",
   "scripts": {
-    "build": "run -T rimraf build && cp -R src build"
+    "build": ""
   },
   "devDependencies": {
     "@k-art/theme": "1.1.0"
